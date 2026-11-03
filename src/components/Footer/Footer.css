@@ -2,6 +2,9 @@
   background: var(--color-yellow);
   border-top: 1px solid rgba(14, 14, 17, 0.15);
   padding: 1.1rem 0;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .footer__inner {

@@ -9,6 +9,11 @@
   overflow: hidden;
   border-top: 2px solid rgba(14, 14, 17, 0.15);
   scroll-margin-top: 70px;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  contain: paint;
+  clip-path: inset(0);
 }
 
 .contact__inner {

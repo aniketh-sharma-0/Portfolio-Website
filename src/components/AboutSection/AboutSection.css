@@ -9,6 +9,9 @@
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   scroll-margin-top: 70px;
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 .about__inner {
