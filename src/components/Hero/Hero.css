@@ -289,21 +289,37 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
+  .hero {
+    min-height: 100svh;
+  }
+
   .hero__container {
-    padding: 0 var(--sp-4) 1.5rem;
-    min-height: 100vh;
+    padding: calc(64px + 1.25rem) var(--sp-6) 1.5rem;
+    min-height: 100svh;
+    justify-content: space-between;
+  }
+
+  .hero__watermark-row {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    -webkit-text-stroke: 1.4px rgba(30, 30, 35, 0.35);
   }
 
   .hero__artwork-showcase {
-    margin-top: calc(64px + 2rem);
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .hero__frame {
-    height: 220px;
+    max-width: 720px;
+    height: clamp(200px, 30vh, 280px);
+  }
+
+  .hero__artwork-img {
+    object-position: center 40%;
   }
 
   .hero__title {
-    font-size: clamp(3.2rem, 13vw, 6rem);
+    font-size: clamp(3.2rem, 9.5vw, 5.5rem);
     white-space: normal;
     word-break: break-word;
   }
@@ -322,5 +338,82 @@
   .hero__cta {
     width: 100%;
     justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .hero__container {
+    padding: calc(64px + 0.65rem) var(--sp-4) 1.15rem;
+    min-height: 100svh;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .hero__watermark-row {
+    font-size: clamp(1.35rem, 5vw, 1.85rem);
+    line-height: 0.84;
+    -webkit-text-stroke: 1px rgba(30, 30, 35, 0.28);
+  }
+
+  .hero__artwork-showcase {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+  }
+
+  .hero__frame {
+    width: 100%;
+    max-width: 440px;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: clamp(170px, 25vh, 210px);
+    border-radius: 4px;
+    box-shadow: 0 10px 24px rgba(14, 14, 17, 0.22), 0 0 18px rgba(212, 23, 122, 0.16);
+  }
+
+  .hero__artwork-img {
+    object-fit: contain;
+    object-position: center center;
+  }
+
+  .hero__bottom-section {
+    padding-bottom: 0;
+  }
+
+  .hero__title-wrap {
+    margin-bottom: 0.2rem;
+  }
+
+  .hero__title {
+    font-size: clamp(2.4rem, 11vw, 3.8rem);
+    line-height: 0.88;
+    white-space: nowrap;
+  }
+
+  .hero__title-accent {
+    width: 80px;
+    height: 4px;
+    margin-top: 0.4rem;
+  }
+
+  .hero__bottom-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+    padding-top: 0.35rem;
+  }
+
+  .hero__tagline {
+    font-size: clamp(0.8rem, 3.2vw, 0.92rem);
+    line-height: 1.35;
+  }
+
+  .hero__cta {
+    padding: 0.58rem 1.25rem;
+    font-size: 0.9rem;
   }
 }

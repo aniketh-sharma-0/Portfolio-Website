@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import './Hero.css'
 
-const WATERMARK_ROWS = Array.from({ length: 34 })
+const WATERMARK_ROWS = Array.from({ length: 48 })
 // Single space between words, tight and compact with seamless loop boundary
 const WATERMARK_CHUNK = Array.from({ length: 26 }).fill('SKETCHIZEL').join('\u00A0') + '\u00A0'
 
