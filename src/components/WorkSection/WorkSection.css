@@ -317,12 +317,17 @@
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .work__header-wrap {
-    padding-top: 3.5rem;
-    padding-bottom: 2.5rem;
+    padding-top: 2.75rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .work__meta-tag {
+    margin-bottom: 1.4rem;
   }
 
   .work__discipline-nav {
-    gap: 1.2rem 1.8rem;
+    gap: 1rem 1.6rem;
+    margin-bottom: 1.2rem;
   }
 
   .work__btn-text {
