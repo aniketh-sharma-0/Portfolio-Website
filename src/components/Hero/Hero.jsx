@@ -58,7 +58,7 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="hero__container section-inner">
+      <div className="hero__container">
         {/* ── Featured 3D Artwork Showcase Window ── */}
         <div className="hero__artwork-showcase reveal">
           <div className="hero__frame">
