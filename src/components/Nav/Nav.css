@@ -1,0 +1,193 @@
+/* ============================================================
+   NAV — Constant Black Bar with High-Impact Yellow Typography
+   ============================================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: #0E0E11; /* Completely solid black, not transparent */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  transition: padding 0.3s ease;
+}
+
+.nav--scrolled {
+  background: #0E0E11;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+}
+
+.nav__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.15rem var(--sp-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* ── Brand Logo in Navbar (Always Visible, Featuring Sketchizel Logo Mark) ── */
+.nav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  position: relative;
+  z-index: 101;
+  opacity: 1;
+  pointer-events: all;
+  transform: none;
+  cursor: pointer;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.nav__logo-img {
+  height: 34px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: invert(1) brightness(1.2);
+}
+
+.nav__logo-text {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  letter-spacing: 0.12em;
+  color: var(--color-yellow);
+  font-weight: 700;
+  display: inline-block;
+  line-height: 1;
+}
+
+.nav--past-hero .nav__logo {
+  opacity: 1;
+  pointer-events: all;
+  transform: none;
+}
+
+/* ── Desktop nav links (Work, About, Contact) in Yellow ── */
+.nav__links {
+  list-style: none;
+  display: flex;
+  gap: 2.5rem;
+  margin-left: auto;
+}
+
+.nav__links a {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-yellow);
+  opacity: 0.92;
+  transition: opacity 0.2s, color 0.2s;
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.nav__links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease-out);
+}
+
+.nav__links a:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+.nav__links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* ── Burger in Yellow ── */
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  position: relative;
+  z-index: 101;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.nav__burger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--color-yellow);
+  transition: transform 0.3s, opacity 0.3s;
+  transform-origin: center;
+}
+
+.nav__burger--open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav__burger--open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav__burger--open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile overlay ── */
+.nav__mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: #08080A;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s var(--ease-out);
+}
+
+.nav__mobile-overlay--open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.nav__mobile-overlay ul {
+  list-style: none;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.nav__mobile-overlay a {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  color: var(--color-yellow);
+  opacity: 0.95;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.nav__mobile-overlay a:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .nav__inner {
+    padding: 1.1rem var(--sp-4);
+  }
+  .nav__links { display: none; }
+  .nav__burger { display: flex; }
+}

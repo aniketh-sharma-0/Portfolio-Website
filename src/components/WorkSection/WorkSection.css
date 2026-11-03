@@ -1,0 +1,345 @@
+/* ============================================================
+   WORK SECTION — Improvised Editorial Discipline Gallery (Dark Canvas)
+   ============================================================ */
+
+.work {
+  background: #08080A;
+  padding-bottom: 0;
+  position: relative;
+  scroll-margin-top: 70px;
+}
+
+/* ── Header Wrapper ── */
+.work__header-wrap {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(8, 8, 10, 0.95) 0%, rgba(8, 8, 10, 1) 100%);
+  padding-top: 2.25rem;
+  padding-bottom: 2.75rem;
+}
+
+.work__header {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Small top editorial tag */
+.work__meta-tag {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.8rem;
+}
+
+.work__meta-label {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: var(--color-paper);
+  opacity: 0.65;
+}
+
+/* ── Unified High-Impact Discipline Switcher (No Duplicate Titles) ── */
+.work__discipline-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2rem 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.work__discipline-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.work__btn-text {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-paper);
+  opacity: 0.32;
+  transition: opacity 0.25s ease, color 0.25s ease;
+}
+
+.work__discipline-btn:hover .work__btn-text {
+  opacity: 0.75;
+  color: #fff;
+}
+
+/* Active discipline becomes bold white with accent indicator */
+.work__discipline-btn--active .work__btn-text {
+  opacity: 1;
+  color: #fff;
+}
+
+.work__btn-indicator {
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(212, 23, 122, 0.4);
+  animation: indicatorIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes indicatorIn {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* ── Dynamic Focus Bar (Connected directly to the switcher) ── */
+.work__focus-bar {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding-top: 0.75rem;
+}
+
+.work__focus-lead {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  opacity: 0.9;
+  flex-shrink: 0;
+}
+
+.work__focus-text {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: var(--color-paper);
+  opacity: 0.65;
+  line-height: 1.4;
+  max-width: 65ch;
+  animation: textFade 0.3s ease;
+}
+
+@keyframes textFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 0.65; transform: translateY(0); }
+}
+
+/* ── Projects list ── */
+.work__projects {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ══════════════════════════════════════════════
+   WRAPPED EMPTY STATE (Yellow Caution Ribbon Tape)
+   Random Vertical, Diagonal & Curved Wrapping
+══════════════════════════════════════════════ */
+.work__empty-wrap {
+  position: relative;
+  width: 100%;
+  min-height: 560px;
+  background: #09090C;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem var(--sp-4);
+  overflow: hidden;
+}
+
+/* Base Ribbon Band Style */
+.work__ribbon {
+  position: absolute;
+  width: 160vw;
+  left: -30vw;
+  background: var(--color-yellow, #ECC032);
+  color: #0E0E11;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2vw, 1.9rem);
+  line-height: 1;
+  padding: 0.75rem 0;
+  white-space: nowrap;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.65);
+  user-select: none;
+  pointer-events: none;
+}
+
+.work__ribbon-track {
+  display: flex;
+  width: max-content;
+  animation: ribbonDrift 60s linear infinite;
+  will-change: transform;
+}
+
+.work__ribbon--reverse .work__ribbon-track {
+  animation: ribbonDriftReverse 65s linear infinite;
+}
+
+@keyframes ribbonDrift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes ribbonDriftReverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* Random Vertical, Diagonal & Intersecting Angles */
+.work__ribbon--diag-1 {
+  top: 18%;
+  transform: rotate(-9deg);
+  z-index: 4;
+}
+
+.work__ribbon--diag-2 {
+  bottom: 20%;
+  transform: rotate(13deg);
+  z-index: 15; /* Passes over the front */
+}
+
+.work__ribbon--vert-1 {
+  top: 48%;
+  transform: rotate(-32deg) translateY(-30px);
+  z-index: 5;
+}
+
+.work__ribbon--vert-2 {
+  top: 52%;
+  transform: rotate(38deg) translateY(20px);
+  z-index: 16; /* Passes over the front */
+}
+
+/* Curved S-Wave Ribbon SVG */
+.work__ribbon-curve-svg {
+  position: absolute;
+  top: 30%;
+  left: -5%;
+  width: 110%;
+  height: 220px;
+  z-index: 14; /* Weaves over the card */
+  pointer-events: none;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.65));
+}
+
+/* ── Central Curation Card (Wrapped Inside) ── */
+.work__empty-card {
+  position: relative;
+  z-index: 10;
+  max-width: 540px;
+  width: 100%;
+  background: rgba(14, 14, 18, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+  padding: 3.2rem 2.5rem;
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.15rem;
+}
+
+.work__empty-badge {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  color: var(--color-highlight, #5BCACA);
+  text-transform: uppercase;
+}
+
+.work__empty-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.3rem, 5vw, 3.4rem);
+  line-height: 0.95;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.work__empty-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
+  max-width: 44ch;
+}
+
+.work__empty-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.65rem;
+  margin-top: 0.5rem;
+  background: var(--color-accent, #D4177A);
+  border: 1px solid var(--color-accent, #D4177A);
+  color: #FFFFFF;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.12em;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(212, 23, 122, 0.35);
+}
+
+.work__empty-cta:hover {
+  background: #A80E5E;
+  border-color: #A80E5E;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(212, 23, 122, 0.5);
+}
+
+.work__empty-cta-arrow {
+  font-size: 1.2rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.work__empty-cta:hover .work__empty-cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .work__header-wrap {
+    padding-top: 3.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .work__discipline-nav {
+    gap: 1.2rem 1.8rem;
+  }
+
+  .work__btn-text {
+    font-size: clamp(2rem, 8vw, 3.2rem);
+  }
+
+  .work__focus-bar {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .work__empty-wrap {
+    min-height: 480px;
+    padding: 3rem var(--sp-4);
+  }
+
+  .work__empty-card {
+    padding: 2.2rem 1.5rem;
+  }
+}

@@ -1,0 +1,199 @@
+/* ============================================================
+   SKETCHIZEL PORTFOLIO — Global Design System
+   Yellow Hero & Rich Cinematic Dark Gallery
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* ── Core Yellow Canvas (Hero) ── */
+  --color-yellow:       #ECC032; /* Warm Artist Cadmium Yellow */
+  --color-yellow-light: #F5CD45;
+  --color-yellow-deep:  #DCB022;
+  --color-yellow-soft:  #FBE589;
+
+  /* ── Rich Dark Backgrounds (Work, About, Contact) ── */
+  --color-bg:           #0B0B0E;
+  --color-surface:      #121217;
+  --color-surface-card: #181820;
+
+  /* ── Typography & Ink ── */
+  --color-ink:          #0E0E11; /* True Graphic Jet Black */
+  --color-paper:        #F4EFEB; /* Crisp Creamy Ivory White */
+  --color-paper-muted:  rgba(244, 239, 235, 0.72);
+  --color-paper-dim:    rgba(244, 239, 235, 0.45);
+
+  /* ── Bold Contrast Accents ── */
+  --color-accent:       #D4177A; /* Arcane Electric Magenta */
+  --color-accent-dark:  #A80E5E;
+  --color-highlight:    #5BCACA; /* Cyan Glow */
+
+  /* Typography */
+  --font-display:       'Bebas Neue', sans-serif;
+  --font-hand:          'Caveat', cursive;
+  --font-body:          'DM Sans', sans-serif;
+
+  /* Spacing scale */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-24: 6rem;
+  --sp-32: 8rem;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  background-color: var(--color-bg);
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-paper);
+  overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+/* ── Completely Hide Scrollbar across all browsers ── */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+/* ── Scroll reveal animations ──────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Typography ────────────────────────────────────── */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  line-height: 0.95;
+  color: var(--color-paper);
+}
+
+p {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--color-paper-muted);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: var(--font-body);
+  border: none;
+  background: none;
+}
+
+/* ── Accent slash ─────────────────────────────────── */
+.slash-line {
+  display: inline-block;
+  width: 50px;
+  height: 3px;
+  background: var(--color-accent);
+  transform: skewX(-20deg);
+  margin-bottom: var(--sp-4);
+}
+
+/* ── Section container ────────────────────────────── */
+.section-inner {
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 0 var(--sp-8);
+}
+
+@media (max-width: 768px) {
+  .section-inner {
+    padding: 0 var(--sp-4);
+  }
+}
+
+/* ── Tag pill ─────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 3px 10px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+/* ── Fan art badge ────────────────────────────────── */
+.fanart-badge {
+  font-family: var(--font-hand);
+  font-size: 0.95rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-top: var(--sp-1);
+}
