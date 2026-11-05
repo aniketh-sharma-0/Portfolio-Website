@@ -46,6 +46,7 @@
   overflow: hidden;
   display: block;
   background: #08080A;
+  contain: layout paint;
 }
 
 /* Artwork image: 100% full, sharp, uncropped, ZERO BLUR */

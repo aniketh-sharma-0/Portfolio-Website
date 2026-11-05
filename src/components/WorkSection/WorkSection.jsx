@@ -51,76 +51,78 @@ export default function WorkSection() {
       </div>
 
       {/* ── Visual-First Projects Gallery, Digital Art Abstract Library, or Wrapped Empty State ── */}
-      {activeCategory === 'digital' ? (
-        <DigitalGallery />
-      ) : filtered.length > 0 ? (
-        <div className="work__projects">
-          {filtered.map((project, i) => (
-            <ProjectCard
-              key={project.id}
-              project={project}
-              index={i}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="work__empty-wrap">
-          {/* ── Layered Yellow Caution Tape Ribbons (Crisp, Responsive, Non-Distorting) ── */}
-          {/* Background Ribbons (Framing behind the card) */}
-          <div className="work__ribbon work__ribbon--bg-1" aria-hidden="true">
-            <div className="work__ribbon-track">
-              <span>{RIBBON_CHUNK}</span>
-              <span>{RIBBON_CHUNK}</span>
+      <div key={activeCategory} className="work__tab-pane">
+        {activeCategory === 'digital' ? (
+          <DigitalGallery />
+        ) : filtered.length > 0 ? (
+          <div className="work__projects">
+            {filtered.map((project, i) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                index={i}
+              />
+            ))}
+          </div>
+        ) : (
+          <div className="work__empty-wrap">
+            {/* ── Layered Yellow Caution Tape Ribbons (Crisp, Responsive, Non-Distorting) ── */}
+            {/* Background Ribbons (Framing behind the card) */}
+            <div className="work__ribbon work__ribbon--bg-1" aria-hidden="true">
+              <div className="work__ribbon-track">
+                <span>{RIBBON_CHUNK}</span>
+                <span>{RIBBON_CHUNK}</span>
+              </div>
+            </div>
+
+            <div className="work__ribbon work__ribbon--bg-2 work__ribbon--reverse" aria-hidden="true">
+              <div className="work__ribbon-track">
+                <span>{RIBBON_CHUNK}</span>
+                <span>{RIBBON_CHUNK}</span>
+              </div>
+            </div>
+
+            <div className="work__ribbon work__ribbon--bg-3" aria-hidden="true">
+              <div className="work__ribbon-track">
+                <span>{RIBBON_CHUNK}</span>
+                <span>{RIBBON_CHUNK}</span>
+              </div>
+            </div>
+
+            {/* Foreground Ribbons (Weaving across top & bottom edges of card) */}
+            <div className="work__ribbon work__ribbon--fg-1 work__ribbon--reverse" aria-hidden="true">
+              <div className="work__ribbon-track">
+                <span>{RIBBON_CHUNK}</span>
+                <span>{RIBBON_CHUNK}</span>
+              </div>
+            </div>
+
+            <div className="work__ribbon work__ribbon--fg-2" aria-hidden="true">
+              <div className="work__ribbon-track">
+                <span>{RIBBON_CHUNK}</span>
+                <span>{RIBBON_CHUNK}</span>
+              </div>
+            </div>
+
+            {/* ── Central Curation Card Wrapped by the Ribbons ── */}
+            <div className="work__empty-card">
+              <span className="work__empty-badge">CURATION IN PROGRESS</span>
+              <h3 className="work__empty-title">{currentCategory?.label}</h3>
+              <p className="work__empty-text">
+                Selected works in this discipline are currently being curated and prepared for release. Explore the active 3D modeling collection.
+              </p>
+              <button
+                type="button"
+                className="work__empty-cta"
+                onClick={() => setActiveCategory('3d')}
+              >
+                <span>EXPLORE 3D ART</span>
+                <span className="work__empty-cta-arrow">&rarr;</span>
+              </button>
             </div>
           </div>
-
-          <div className="work__ribbon work__ribbon--bg-2 work__ribbon--reverse" aria-hidden="true">
-            <div className="work__ribbon-track">
-              <span>{RIBBON_CHUNK}</span>
-              <span>{RIBBON_CHUNK}</span>
-            </div>
-          </div>
-
-          <div className="work__ribbon work__ribbon--bg-3" aria-hidden="true">
-            <div className="work__ribbon-track">
-              <span>{RIBBON_CHUNK}</span>
-              <span>{RIBBON_CHUNK}</span>
-            </div>
-          </div>
-
-          {/* Foreground Ribbons (Weaving across top & bottom edges of card) */}
-          <div className="work__ribbon work__ribbon--fg-1 work__ribbon--reverse" aria-hidden="true">
-            <div className="work__ribbon-track">
-              <span>{RIBBON_CHUNK}</span>
-              <span>{RIBBON_CHUNK}</span>
-            </div>
-          </div>
-
-          <div className="work__ribbon work__ribbon--fg-2" aria-hidden="true">
-            <div className="work__ribbon-track">
-              <span>{RIBBON_CHUNK}</span>
-              <span>{RIBBON_CHUNK}</span>
-            </div>
-          </div>
-
-          {/* ── Central Curation Card Wrapped by the Ribbons ── */}
-          <div className="work__empty-card">
-            <span className="work__empty-badge">CURATION IN PROGRESS</span>
-            <h3 className="work__empty-title">{currentCategory?.label}</h3>
-            <p className="work__empty-text">
-              Selected works in this discipline are currently being curated and prepared for release. Explore the active 3D modeling collection.
-            </p>
-            <button
-              type="button"
-              className="work__empty-cta"
-              onClick={() => setActiveCategory('3d')}
-            >
-              <span>EXPLORE 3D ART</span>
-              <span className="work__empty-cta-arrow">&rarr;</span>
-            </button>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
     </section>
   )
 }

@@ -20,7 +20,15 @@ export function useScrollReveal() {
 
     const observeElements = () => {
       const els = document.querySelectorAll('.reveal:not(.visible), .reveal-left:not(.visible), .reveal-right:not(.visible)')
-      els.forEach((el) => observerRef.current?.observe(el))
+      els.forEach((el) => {
+        // If element is already in the viewport, make it visible immediately without flash/delay
+        const rect = el.getBoundingClientRect()
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('visible')
+        } else {
+          observerRef.current?.observe(el)
+        }
+      })
     }
 
     // Initial pass

@@ -78,13 +78,19 @@ export default function DigitalGallery() {
                 }
               }}
             >
-              {/* 100% Uncropped Artwork Canvas */}
-              <div className="digital-card__media">
+              {/* 100% Uncropped Artwork Canvas with Pre-Reserved Aspect Ratio */}
+              <div
+                className="digital-card__media"
+                style={{ aspectRatio: `${item.width} / ${item.height}` }}
+              >
                 <img
                   src={item.image}
                   alt={`Artwork ${item.catalogNo}`}
                   className="digital-card__img"
-                  loading={index < 4 ? 'eager' : 'lazy'}
+                  width={item.width}
+                  height={item.height}
+                  loading="eager"
+                  decoding="async"
                 />
 
                 {/* Bottom Overlay with "VIEW ON INSTAGRAM" (Only for items with links, zero blur) */}

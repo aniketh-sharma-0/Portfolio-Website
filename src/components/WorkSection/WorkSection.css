@@ -145,6 +145,24 @@
   to   { opacity: 0.65; transform: translateY(0); }
 }
 
+/* ── Tab Content Container with Silky Fade-In ── */
+.work__tab-pane {
+  width: 100%;
+  animation: tabContentIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: opacity, transform;
+}
+
+@keyframes tabContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ── Projects list ── */
 .work__projects {
   display: flex;
