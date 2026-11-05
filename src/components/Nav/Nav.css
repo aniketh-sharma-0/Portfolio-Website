@@ -21,7 +21,7 @@
 }
 
 .nav__inner {
-  max-width: 1400px;
+  max-width: var(--container-max, 1400px);
   margin: 0 auto;
   padding: 1.15rem var(--sp-8);
   display: flex;

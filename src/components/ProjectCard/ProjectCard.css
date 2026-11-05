@@ -20,7 +20,7 @@
 
 /* ── Centered content container with comfortable breathing room ── */
 .project-card__inner {
-  max-width: 1350px;
+  max-width: var(--container-max, 1350px);
   margin: 0 auto;
   padding: 4.5rem var(--sp-8);
   display: grid;

@@ -49,9 +49,49 @@
   --sp-24: 6rem;
   --sp-32: 8rem;
 
+  /* Layout */
+  --container-max: 1350px;
+
   /* Transitions */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* ── Proportional Display Scaling for Larger Screens ───────── */
+@media (min-width: 1440px) {
+  :root {
+    --container-max: 1480px;
+  }
+  html {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1720px) {
+  :root {
+    --container-max: 1640px;
+  }
+  html {
+    font-size: 18.5px;
+  }
+}
+
+@media (min-width: 2100px) {
+  :root {
+    --container-max: 1840px;
+  }
+  html {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 2560px) {
+  :root {
+    --container-max: 2040px;
+  }
+  html {
+    font-size: 22px;
+  }
 }
 
 html {
@@ -178,7 +218,7 @@ button {
 
 /* ── Section container ────────────────────────────── */
 .section-inner {
-  max-width: 1350px;
+  max-width: var(--container-max, 1350px);
   margin: 0 auto;
   padding: 0 var(--sp-8);
 }

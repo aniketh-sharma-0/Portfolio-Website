@@ -108,12 +108,13 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  max-width: 1350px;
+  max-width: var(--container-max, 1350px);
   margin: 0 auto;
-  padding: 0 var(--sp-8) 2rem;
+  padding: calc(64px + 1.75rem) var(--sp-8) 2.25rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  gap: clamp(1.5rem, 3.5vh, 2.75rem);
   min-height: 100vh;
   min-height: 100svh;
   box-sizing: border-box;
@@ -125,17 +126,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* Guaranteed comfortable 60px yellow gap below the 64px fixed black navbar */
-  margin-top: calc(64px + 3.75rem);
-  margin-bottom: auto;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 /* ── Dedicated Showcase Frame (Pure Artwork, Non-Clickable) ── */
 .hero__frame {
   position: relative;
   width: 100%;
-  max-width: 1040px;
-  height: clamp(240px, 34vh, 370px);
+  max-width: clamp(1000px, 75vw, 1320px);
+  height: clamp(260px, 38vh, 440px);
   border-radius: 4px;
   overflow: hidden;
   background: #0E0E11;
@@ -220,7 +220,7 @@
 }
 
 .hero__info {
-  max-width: 520px;
+  max-width: clamp(520px, 42vw, 720px);
 }
 
 .hero__tagline {
@@ -337,7 +337,7 @@
   .hero__frame {
     width: 100%;
     max-width: 440px;
-    aspect-ratio: 2.8 / 1;
+    aspect-ratio: 2.35 / 1;
     height: auto;
     border-radius: 4px;
     overflow: hidden;

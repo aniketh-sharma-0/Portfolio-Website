@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import ProjectCard from '../ProjectCard/ProjectCard'
+import DigitalGallery from '../DigitalGallery/DigitalGallery'
 import { projects, categories } from '../../data/projects'
 import './WorkSection.css'
 
@@ -49,8 +50,10 @@ export default function WorkSection() {
         </div>
       </div>
 
-      {/* ── Visual-First Projects Gallery or Wrapped Empty State ── */}
-      {filtered.length > 0 ? (
+      {/* ── Visual-First Projects Gallery, Digital Art Abstract Library, or Wrapped Empty State ── */}
+      {activeCategory === 'digital' ? (
+        <DigitalGallery />
+      ) : filtered.length > 0 ? (
         <div className="work__projects">
           {filtered.map((project, i) => (
             <ProjectCard
@@ -62,47 +65,43 @@ export default function WorkSection() {
         </div>
       ) : (
         <div className="work__empty-wrap">
-          {/* ── Random Vertical, Diagonal & Curved Yellow Ribbons (Not Available) ── */}
-          <div className="work__ribbon work__ribbon--diag-1" aria-hidden="true">
+          {/* ── Layered Yellow Caution Tape Ribbons (Crisp, Responsive, Non-Distorting) ── */}
+          {/* Background Ribbons (Framing behind the card) */}
+          <div className="work__ribbon work__ribbon--bg-1" aria-hidden="true">
             <div className="work__ribbon-track">
               <span>{RIBBON_CHUNK}</span>
               <span>{RIBBON_CHUNK}</span>
             </div>
           </div>
 
-          <div className="work__ribbon work__ribbon--diag-2 work__ribbon--reverse" aria-hidden="true">
+          <div className="work__ribbon work__ribbon--bg-2 work__ribbon--reverse" aria-hidden="true">
             <div className="work__ribbon-track">
               <span>{RIBBON_CHUNK}</span>
               <span>{RIBBON_CHUNK}</span>
             </div>
           </div>
 
-          <div className="work__ribbon work__ribbon--vert-1" aria-hidden="true">
+          <div className="work__ribbon work__ribbon--bg-3" aria-hidden="true">
             <div className="work__ribbon-track">
               <span>{RIBBON_CHUNK}</span>
               <span>{RIBBON_CHUNK}</span>
             </div>
           </div>
 
-          <div className="work__ribbon work__ribbon--vert-2 work__ribbon--reverse" aria-hidden="true">
+          {/* Foreground Ribbons (Weaving across top & bottom edges of card) */}
+          <div className="work__ribbon work__ribbon--fg-1 work__ribbon--reverse" aria-hidden="true">
             <div className="work__ribbon-track">
               <span>{RIBBON_CHUNK}</span>
               <span>{RIBBON_CHUNK}</span>
             </div>
           </div>
 
-          {/* Curved S-Wave Ribbon via SVG textPath */}
-          <svg className="work__ribbon-curve-svg" viewBox="0 0 1600 280" preserveAspectRatio="none" aria-hidden="true">
-            <defs>
-              <path id="ribbonSPath" d="M -100,190 Q 400,20 800,140 T 1700,70" fill="none" />
-            </defs>
-            <use href="#ribbonSPath" stroke="#ECC032" strokeWidth="58" strokeLinecap="square" />
-            <text fill="#0E0E11" fontSize="26" fontFamily="'Bebas Neue', sans-serif" letterSpacing="4" dy="9" fontWeight="bold">
-              <textPath href="#ribbonSPath" startOffset="0%">
-                NOT AVAILABLE /// NOT AVAILABLE /// NOT AVAILABLE /// NOT AVAILABLE /// NOT AVAILABLE /// NOT AVAILABLE /// NOT AVAILABLE /// NOT AVAILABLE
-              </textPath>
-            </text>
-          </svg>
+          <div className="work__ribbon work__ribbon--fg-2" aria-hidden="true">
+            <div className="work__ribbon-track">
+              <span>{RIBBON_CHUNK}</span>
+              <span>{RIBBON_CHUNK}</span>
+            </div>
+          </div>
 
           {/* ── Central Curation Card Wrapped by the Ribbons ── */}
           <div className="work__empty-card">

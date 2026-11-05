@@ -148,31 +148,6 @@ export const projects = [
       text: '#F8F8F0',
     },
   },
-
-  {
-    id: 'subway',
-    title: 'Stylized Subway',
-    subtitle: 'Atmospheric Interior',
-    categoryLabel: '3D Environment Art',
-    category: '3d',
-    tags: ['Environment Art', 'Blender', 'Interior Lighting', 'Stylized'],
-    images: ['/images/subway.png'],
-    shortDesc: 'An atmospheric stylized subway train interior modeled in Blender, exploring moody neon volumetric lighting and urban commuter storytelling with a cyberpunk-inspired color grade.',
-    
-    // ── ArtStation Link Configuration ─────────────────────────
-    // Replace with your specific ArtStation project URL:
-    artstationUrl: 'https://aniketh_b.artstation.com/projects/YOUR_SUBWAY_PROJECT_SLUG',
-
-    year: '2025',
-    isFanArt: false,
-    tools: ['Blender'],
-    palette: {
-      accent: '#00C896',
-      bg: '#0A1214',
-      highlight: '#FF4081',
-      text: '#E6FAF5',
-    },
-  },
 ]
 
 // ============================================================
