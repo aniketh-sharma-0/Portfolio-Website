@@ -145,21 +145,19 @@
   to   { opacity: 0.65; transform: translateY(0); }
 }
 
-/* ── Tab Content Container with Silky Fade-In ── */
+/* ── Tab Content Container with Silky Glitch-Free Fade-In ── */
 .work__tab-pane {
   width: 100%;
-  animation: tabContentIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: opacity, transform;
+  min-height: 60vh;
+  animation: tabContentIn 0.25s ease-out forwards;
 }
 
 @keyframes tabContentIn {
   from {
     opacity: 0;
-    transform: translateY(6px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 

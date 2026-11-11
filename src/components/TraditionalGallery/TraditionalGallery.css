@@ -1,0 +1,884 @@
+/* ============================================================
+   TRADITIONAL ART GALLERY — EDITORIAL CURATED SHOWCASE
+   Multi-Medium Classification (Graphite, Charcoal, Acrylic, Watercolor, Pen)
+   100% Native Uncropped Display · Adaptive Spotlight · Darkroom Lightbox
+   ============================================================ */
+
+.traditional-gallery {
+  width: 100%;
+  max-width: var(--container-max, 1350px);
+  margin: 0 auto;
+  padding: 1.25rem var(--sp-8) 6rem;
+  box-sizing: border-box;
+}
+
+/* ── Filter & Grouping Control Console ── */
+.traditional-gallery__controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Tier 1: Discipline Group Tabs (Dry vs Wet vs All) */
+.traditional-gallery__groups {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.traditional-gallery__group-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-paper, #EBEBF0);
+  padding: 0.65rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.06em;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.traditional-gallery__group-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.traditional-gallery__group-btn--active {
+  background: var(--color-paper, #EBEBF0);
+  border-color: var(--color-paper, #EBEBF0);
+  color: #0A0A0E;
+  box-shadow: 0 4px 18px rgba(255, 255, 255, 0.12);
+}
+
+.traditional-gallery__group-btn--active:hover {
+  background: #fff;
+  border-color: #fff;
+  color: #000;
+}
+
+.traditional-gallery__group-count {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.12rem 0.45rem;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.22);
+  color: inherit;
+  opacity: 0.85;
+}
+
+.traditional-gallery__group-btn--active .traditional-gallery__group-count {
+  background: rgba(0, 0, 0, 0.15);
+  color: #0A0A0E;
+}
+
+/* Tier 2: Specific Medium Filter Pills */
+.traditional-gallery__pills {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.traditional-gallery__pill {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-muted, #8F8FA0);
+  padding: 0.42rem 0.85rem;
+  border-radius: 3px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body, 'Space Grotesk', sans-serif);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.traditional-gallery__pill:hover {
+  border-color: rgba(229, 169, 60, 0.5);
+  color: #fff;
+}
+
+.traditional-gallery__pill--active {
+  background: rgba(229, 169, 60, 0.12);
+  border-color: var(--color-yellow, #E5A93C);
+  color: var(--color-yellow, #E5A93C);
+  box-shadow: 0 0 14px rgba(229, 169, 60, 0.2);
+}
+
+.traditional-gallery__pill-count {
+  font-size: 0.7rem;
+  opacity: 0.65;
+  font-family: var(--font-mono, monospace);
+}
+
+.traditional-gallery__pill--active .traditional-gallery__pill-count {
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* ── Contextual Editorial Spotlight Banner (for active medium or smaller collections) ── */
+.traditional-gallery__spotlight-banner {
+  background: linear-gradient(135deg, rgba(20, 20, 26, 0.85) 0%, rgba(14, 14, 18, 0.95) 100%);
+  border-left: 3px solid var(--color-yellow, #E5A93C);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-right: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 1.1rem 1.5rem;
+  border-radius: 0 4px 4px 0;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  animation: bannerFade 0.3s ease;
+}
+
+@keyframes bannerFade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.traditional-gallery__spotlight-meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.traditional-gallery__spotlight-tag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  color: var(--color-yellow, #E5A93C);
+  font-weight: 600;
+}
+
+.traditional-gallery__spotlight-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.traditional-gallery__spotlight-qty {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: var(--color-muted, #8F8FA0);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+}
+
+.traditional-gallery__spotlight-desc {
+  font-family: var(--font-body, 'Space Grotesk', sans-serif);
+  font-size: 0.88rem;
+  color: rgba(235, 235, 240, 0.75);
+  line-height: 1.45;
+  margin: 0;
+  max-width: 75ch;
+}
+
+/* ── Gallery Layout Modes ── */
+
+/* 1. Masonry Wall (3+ items) */
+.traditional-gallery__wall--masonry {
+  column-count: 4;
+  column-gap: clamp(12px, 1.4vw, 18px);
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .traditional-gallery__wall--masonry {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 820px) {
+  .traditional-gallery__wall--masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 540px) {
+  .traditional-gallery__wall--masonry {
+    column-count: 1;
+  }
+}
+
+/* 2. Centered Spotlight Mode (1-2 items: Pen, Watercolor) */
+.traditional-gallery__wall--spotlight {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  width: 100%;
+  margin: 1rem auto 3rem;
+}
+
+.traditional-gallery__wall--spotlight .traditional-card {
+  width: 100%;
+  max-width: 520px;
+  margin-bottom: 0;
+}
+
+/* ── Traditional Artwork Tile ── */
+@keyframes cardSmoothEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes placeholderPulse {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 0.22;
+  }
+}
+
+.traditional-card {
+  break-inside: avoid;
+  margin-bottom: clamp(12px, 1.4vw, 18px);
+  display: block;
+  background: #09090C;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  animation: cardSmoothEntrance 0.55s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: calc(min(var(--card-idx, 0), 12) * 45ms);
+  will-change: transform, opacity;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease;
+}
+
+.traditional-card:hover,
+.traditional-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(229, 169, 60, 0.3);
+}
+
+.traditional-card__media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: block;
+  background: #08080A;
+  contain: layout paint;
+}
+
+/* Subtle dark shimmer placeholder before image is decoded */
+.traditional-card__placeholder {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.04) 0%, rgba(10, 10, 14, 0.8) 100%), #0d0d12;
+  animation: placeholderPulse 2.2s ease-in-out infinite;
+  opacity: 1;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.traditional-card--loaded .traditional-card__placeholder {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 100% Uncropped, Sharp, ZERO BLUR artwork with butter-smooth entrance */
+.traditional-card__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  opacity: 0;
+  transform: scale(0.985);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  z-index: 1;
+}
+
+.traditional-card--loaded .traditional-card__img {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.traditional-card:hover .traditional-card__img {
+  transform: scale(1.02);
+}
+
+/* Always-Visible Subtle Top-Right Medium Tag */
+.traditional-card__medium-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(10, 10, 14, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-paper, #EBEBF0);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 2px;
+  pointer-events: none;
+  z-index: 2;
+  transition: border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.traditional-card:hover .traditional-card__medium-badge {
+  border-color: var(--color-yellow, #E5A93C);
+  background: rgba(10, 10, 14, 0.96);
+  color: var(--color-yellow, #E5A93C);
+}
+
+/* ── Bottom Editorial Overlay on Hover (Zero Blur on Art) ── */
+.traditional-card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 1.25rem 1.25rem;
+  background: linear-gradient(to top, rgba(6, 6, 8, 0.95) 0%, rgba(6, 6, 8, 0.7) 65%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+  pointer-events: none;
+}
+
+.traditional-card:hover .traditional-card__overlay,
+.traditional-card:focus-visible .traditional-card__overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.traditional-card__overlay-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transform: translateY(6px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.traditional-card:hover .traditional-card__overlay-content {
+  transform: translateY(0);
+}
+
+.traditional-card__overlay-catno {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: var(--color-yellow, #E5A93C);
+  letter-spacing: 0.12em;
+  font-weight: 600;
+}
+
+.traditional-card__overlay-title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: 1.35rem;
+  line-height: 1.05;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 0.03em;
+}
+
+.traditional-card__overlay-sub {
+  font-family: var(--font-body, 'Space Grotesk', sans-serif);
+  font-size: 0.78rem;
+  color: var(--color-muted, #8F8FA0);
+  margin: 0;
+}
+
+.traditional-card__overlay-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+  color: var(--color-yellow, #E5A93C);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* ============================================================
+   FULLSCREEN DARKROOM LIGHTBOX (100% UNCROPPED, ZERO CLIPPING)
+   ============================================================ */
+
+.traditional-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  inset: 0;
+  z-index: 999999;
+  background: rgba(6, 6, 8, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  animation: lightboxFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@keyframes lightboxFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Top Bar ── */
+.traditional-lightbox__top {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  background: rgba(8, 8, 12, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 30;
+}
+
+.traditional-lightbox__top-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Obvious "BACK TO GALLERY" Return Button */
+.traditional-lightbox__back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 0.45rem 1.1rem;
+  border-radius: 3px;
+  font-family: var(--font-body, 'Space Grotesk', sans-serif);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.traditional-lightbox__back-btn:hover {
+  background: var(--color-yellow, #E5A93C);
+  border-color: var(--color-yellow, #E5A93C);
+  color: #0A0A0E;
+  transform: translateX(-2px);
+  box-shadow: 0 4px 16px rgba(229, 169, 60, 0.3);
+}
+
+.traditional-lightbox__badge {
+  background: rgba(229, 169, 60, 0.15);
+  border: 1px solid var(--color-yellow, #E5A93C);
+  color: var(--color-yellow, #E5A93C);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.65rem;
+  border-radius: 2px;
+}
+
+.traditional-lightbox__counter {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.82rem;
+  color: var(--color-paper, #EBEBF0);
+  opacity: 0.65;
+  letter-spacing: 0.1em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.traditional-lightbox__counter-div {
+  opacity: 0.35;
+}
+
+.traditional-lightbox__top-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Close Pill Button */
+.traditional-lightbox__close-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+  padding: 0.42rem 0.9rem;
+  border-radius: 3px;
+  font-family: var(--font-body, 'Space Grotesk', sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.traditional-lightbox__close-pill:hover {
+  background: rgba(212, 23, 122, 0.2);
+  border-color: var(--color-accent, #D4177A);
+  color: #fff;
+  transform: scale(1.02);
+}
+
+.traditional-lightbox__kbd {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.65rem;
+  background: rgba(255, 255, 255, 0.12);
+  padding: 0.1rem 0.35rem;
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.traditional-lightbox__close-x {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+/* ── Center Stage (100% Uncropped, Absolutely No Clipping) ── */
+.traditional-lightbox__stage {
+  flex: 1 1 0%;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  cursor: zoom-out; /* Indicates clicking background returns to gallery */
+}
+
+.traditional-lightbox__image-container {
+  flex: 1 1 0%;
+  height: 100%;
+  width: 100%;
+  max-height: 100%;
+  max-width: calc(100vw - 140px);
+  min-height: 0;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  cursor: zoom-out;
+}
+
+/* The image scales dynamically within the stage height and width: 100% uncropped */
+.traditional-lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.95);
+  border-radius: 2px;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+  cursor: default; /* Artwork itself stays untouched */
+  opacity: 0;
+  transform: scale(0.985);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.traditional-lightbox__img--loaded {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Navigation Arrows */
+.traditional-lightbox__nav {
+  background: rgba(18, 18, 24, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 25;
+  flex-shrink: 0;
+}
+
+.traditional-lightbox__nav:hover {
+  background: var(--color-yellow, #E5A93C);
+  border-color: var(--color-yellow, #E5A93C);
+  color: #0A0A0E;
+  transform: scale(1.08);
+}
+
+/* ── Bottom Bar: Info Panel + Thumbnail Filmstrip (Compact & Non-Intrusive) ── */
+.traditional-lightbox__bottom {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.75rem 1.75rem 1rem;
+  background: rgba(8, 8, 12, 0.96);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 30;
+  box-sizing: border-box;
+}
+
+/* Artwork Details */
+.traditional-lightbox__info-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.traditional-lightbox__text-col {
+  flex: 1;
+  min-width: 0;
+}
+
+.traditional-lightbox__lead-num {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.68rem;
+  color: var(--color-yellow, #E5A93C);
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.traditional-lightbox__title {
+  font-family: var(--font-display, 'Bebas Neue', sans-serif);
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  letter-spacing: 0.03em;
+  color: #fff;
+  margin: 0.1rem 0 0.15rem;
+  line-height: 1.05;
+}
+
+.traditional-lightbox__desc {
+  font-family: var(--font-body, 'Space Grotesk', sans-serif);
+  font-size: 0.8rem;
+  color: rgba(235, 235, 240, 0.72);
+  line-height: 1.35;
+  margin: 0;
+  max-width: 70ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.traditional-lightbox__tags-col {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-shrink: 0;
+}
+
+.traditional-lightbox__spec-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+}
+
+.traditional-lightbox__spec-label {
+  color: var(--color-muted, #8F8FA0);
+}
+
+.traditional-lightbox__spec-val {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Horizontal Filmstrip Carousel */
+.traditional-lightbox__thumbs-wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(229, 169, 60, 0.4) transparent;
+  padding-bottom: 2px;
+}
+
+.traditional-lightbox__thumbs-wrap::-webkit-scrollbar {
+  height: 3px;
+}
+
+.traditional-lightbox__thumbs-wrap::-webkit-scrollbar-thumb {
+  background: rgba(229, 169, 60, 0.4);
+  border-radius: 2px;
+}
+
+.traditional-lightbox__thumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  width: max-content;
+  padding: 2px;
+}
+
+.traditional-lightbox__thumb {
+  width: 42px;
+  height: 42px;
+  border-radius: 2px;
+  background: #14141A;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  padding: 0;
+  flex-shrink: 0;
+  opacity: 0.45;
+  transition: all 0.2s ease;
+}
+
+.traditional-lightbox__thumb:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.traditional-lightbox__thumb--active {
+  opacity: 1;
+  border: 2px solid var(--color-yellow, #E5A93C);
+  box-shadow: 0 0 10px rgba(229, 169, 60, 0.4);
+  transform: scale(1.08);
+}
+
+.traditional-lightbox__thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.traditional-lightbox__thumb-tag {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.85);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.5rem;
+  padding: 0.05rem 0.2rem;
+  color: #fff;
+  line-height: 1;
+}
+
+/* ── Mobile Breakpoints ── */
+@media (max-width: 768px) {
+  .traditional-gallery {
+    padding: 1rem var(--sp-4, 1rem) 4rem;
+  }
+
+  .traditional-gallery__groups {
+    width: 100%;
+  }
+
+  .traditional-gallery__group-btn {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.95rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .traditional-lightbox__top {
+    padding: 0.65rem 1rem;
+  }
+
+  .traditional-lightbox__back-btn {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .traditional-lightbox__stage {
+    padding: 0.25rem 0.5rem;
+  }
+
+  .traditional-lightbox__image-container {
+    max-width: calc(100vw - 80px);
+  }
+
+  .traditional-lightbox__nav {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+  }
+
+  .traditional-lightbox__bottom {
+    padding: 0.5rem 1rem 0.75rem;
+  }
+
+  .traditional-lightbox__info-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .traditional-lightbox__tags-col {
+    display: none;
+  }
+
+  .traditional-lightbox__thumbs-wrap {
+    display: none;
+  }
+}

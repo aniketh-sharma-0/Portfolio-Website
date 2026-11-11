@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ProjectCard from '../ProjectCard/ProjectCard'
 import DigitalGallery from '../DigitalGallery/DigitalGallery'
+import TraditionalGallery from '../TraditionalGallery/TraditionalGallery'
 import { projects, categories } from '../../data/projects'
 import './WorkSection.css'
 
@@ -54,6 +55,8 @@ export default function WorkSection() {
       <div key={activeCategory} className="work__tab-pane">
         {activeCategory === 'digital' ? (
           <DigitalGallery />
+        ) : activeCategory === 'traditional' ? (
+          <TraditionalGallery />
         ) : filtered.length > 0 ? (
           <div className="work__projects">
             {filtered.map((project, i) => (

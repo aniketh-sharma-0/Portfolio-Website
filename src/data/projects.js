@@ -17,7 +17,7 @@ export const categories = [
   {
     id: 'traditional',
     label: 'Traditional',
-    description: 'Charcoal sketches, acrylic paintings, and drawing studies.',
+    description: 'Graphite drawings, charcoal studies, acrylic paintings, pen inking, and watercolors.',
   },
   {
     id: 'graphic',
