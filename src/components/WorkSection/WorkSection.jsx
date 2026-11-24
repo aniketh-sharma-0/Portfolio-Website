@@ -14,6 +14,7 @@ export default function WorkSection({ activeCategory: propCategory, onSelectCate
   const activeCategory = propCategory !== undefined ? propCategory : localCategory
   const setActiveCategory = propOnSelect || setLocalCategory
 
+  const currentCategory = categories.find(c => c.id === activeCategory)
   const filtered = projects.filter(p => p.category === activeCategory)
 
   return (
