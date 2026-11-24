@@ -49,13 +49,13 @@
   will-change: transform;
 }
 
-/* Scroll-driven shift (proportional to scroll speed with layered depth) */
+/* Scroll-driven shift (smooth cushioned momentum with layered depth) */
 .hero__watermark-row--even {
-  transform: translateX(calc(-4rem - var(--scroll-y, 0px) * var(--row-factor, 0.95)));
+  transform: translateX(calc(-4rem - var(--scroll-y, 0px) * var(--row-factor, 0.55)));
 }
 
 .hero__watermark-row--odd {
-  transform: translateX(calc(-10rem + var(--scroll-y, 0px) * var(--row-factor, 0.95)));
+  transform: translateX(calc(-10rem + var(--scroll-y, 0px) * var(--row-factor, 0.55)));
 }
 
 /* Very slow continuous ambient drift as before */

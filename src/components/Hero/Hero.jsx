@@ -29,8 +29,9 @@ export default function Hero() {
 
     const loop = () => {
       if (!isRunning) return
-      if (targetY < window.innerHeight * 1.6) {
-        currentY += (targetY - currentY) * 0.22
+      if (targetY < window.innerHeight * 1.8) {
+        // Silky cushioned physics: smooth gradual momentum, never immediate or jerky
+        currentY += (targetY - currentY) * 0.055
         heroEl.style.setProperty('--scroll-y', `${currentY.toFixed(2)}px`)
       }
       rafId = requestAnimationFrame(loop)
@@ -48,7 +49,7 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero" ref={heroRef}>
-      {/* ── Diagonal Repeating Outline Watermark (Very Slow Ambient Drift + Dynamic Scroll Speedup) ── */}
+      {/* ── Diagonal Repeating Outline Watermark (Very Slow Ambient Drift + Silky Smooth Scroll Parallax) ── */}
       <div className="hero__bg-watermark" aria-hidden="true">
         {WATERMARK_ROWS.map((_, i) => (
           <div
@@ -56,7 +57,7 @@ export default function Hero() {
             className={`hero__watermark-row ${i % 2 === 1 ? 'hero__watermark-row--odd' : 'hero__watermark-row--even'}`}
             style={{
               '--ambient-duration': `${180 + (i % 6) * 12}s`,
-              '--row-factor': (0.8 + (i % 5) * 0.12).toFixed(2),
+              '--row-factor': (0.45 + (i % 5) * 0.07).toFixed(2),
             }}
           >
             <div className="hero__watermark-track">
