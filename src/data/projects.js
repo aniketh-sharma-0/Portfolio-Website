@@ -195,5 +195,5 @@ export const siteConfig = {
   name: 'Sketchizel',
   displayName: 'SKETCHIZEL',
   tagline: '3D Artist · Illustrator · Multidisciplinary Creative',
-  bio: "I'm Aniketh — a multidisciplinary artist working across 3D modeling, environment art, digital illustration, traditional drawing, and graphic design. My long-term goal is to work in the animation industry. Everything I make is guided by a love of craft, storytelling, and pushing the visual boundaries of each medium.",
+  bio: "I'm Aniketh — a 3D Artist and illustrator with a background in traditional drawing and painting. I create stylized 3D environments, props, and characters, exploring visual storytelling through modelling, texturing, and creative world-building. Blending my artistic foundations with modern 3D workflows, I'm passionate about creating distinctive visual experiences and pursuing opportunities in the games and animation industry.",
 }

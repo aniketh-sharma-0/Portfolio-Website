@@ -78,7 +78,7 @@ export default function AboutSection({ onSelectCategory }) {
           <div className="about__right">
             <div className="about__bio-statement">
               <p>
-                I'm Aniketh — a 3D environment artist and illustrator crafting atmospheric worlds, low-poly game spaces, and expressive character concepts. Blending traditional observational drawing with modern 3D pipelines, I'm working toward bringing bold visual stories to life in the animation and games industry.
+                I'm Aniketh — a 3D Artist and illustrator with a background in traditional drawing and painting. I create stylized 3D environments, props, and characters, exploring visual storytelling through modelling, texturing, and creative world-building. Blending my artistic foundations with modern 3D workflows, I'm passionate about creating distinctive visual experiences and pursuing opportunities in the games and animation industry.
               </p>
             </div>
 
