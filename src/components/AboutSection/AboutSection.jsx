@@ -37,12 +37,6 @@ export default function AboutSection({ onSelectCategory }) {
     }
   }
 
-  const handleScrollToWork = (e) => {
-    e.preventDefault()
-    const el = document.getElementById('work')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
     <section className="about" id="about">
       <div className="about__inner section-inner">
@@ -169,16 +163,6 @@ export default function AboutSection({ onSelectCategory }) {
                     </a>
                   )}
                 </div>
-
-                {/* Primary CTA Button to Explore Gallery */}
-                <a
-                  href="#work"
-                  className="about__cta-btn"
-                  onClick={handleScrollToWork}
-                >
-                  <span>VIEW WORK</span>
-                  <span className="about__cta-arrow" aria-hidden="true">&darr;</span>
-                </a>
               </div>
             </div>
           </div>
