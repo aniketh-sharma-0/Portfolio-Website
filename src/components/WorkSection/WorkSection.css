@@ -20,8 +20,8 @@
   border-top: none;
   border-bottom: none;
   background: var(--color-light-section, #ECE8E3);
-  padding-top: 2.75rem;
-  padding-bottom: 2.75rem;
+  padding-top: clamp(1rem, 1.8vh, 1.5rem);
+  padding-bottom: clamp(1.2rem, 2vh, 1.8rem);
 }
 
 .work__header {
@@ -35,6 +35,11 @@
 }
 
 @media (max-width: 768px) {
+  .work__header-wrap {
+    padding-top: clamp(0.65rem, 1.2vh, 0.95rem);
+    padding-bottom: clamp(0.75rem, 1.5vh, 1.15rem);
+  }
+
   .work__header {
     padding: 0 clamp(0.75rem, 3vw, 1.25rem);
   }
@@ -44,7 +49,7 @@
 .work__meta-tag {
   display: flex;
   align-items: center;
-  margin-bottom: 1.6rem;
+  margin-bottom: clamp(0.45rem, 0.8vh, 0.75rem);
 }
 
 .work__meta-label {
@@ -70,7 +75,7 @@
   align-items: baseline;
   justify-content: flex-start;
   gap: 1.25rem clamp(1rem, 2.2vw, 2.5rem);
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(0.75rem, 1.2vh, 1rem);
   width: 100%;
   max-width: 100%;
 }
