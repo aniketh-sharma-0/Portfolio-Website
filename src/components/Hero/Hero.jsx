@@ -7,11 +7,88 @@ const WATERMARK_CHUNK = Array.from({ length: 28 }).fill('SKETCHIZEL').join('\u00
 
 export default function Hero() {
   const heroRef = useRef(null)
+  const frameRef = useRef(null)
 
   const handleNav = (href) => {
     const el = document.querySelector(href)
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
+
+  // Dynamic angled backdrop & slash alignment with showcase frame chamfers
+  useEffect(() => {
+    const heroEl = heroRef.current
+    const frameEl = frameRef.current
+    if (!heroEl || !frameEl) return
+
+    const updateSlashGeometry = () => {
+      const hEl = heroRef.current
+      const fEl = frameRef.current
+      if (!hEl || !fEl) return
+
+      const heroRect = hEl.getBoundingClientRect()
+      const frameRect = fEl.getBoundingClientRect()
+
+      if (frameRect.width === 0 || heroRect.width === 0) return
+
+      // Chamfer facet offset: 22px on desktop (>768px), 14px on mobile (<=768px)
+      const isMobile = window.innerWidth <= 768
+      const chamfer = isMobile ? 14 : 22
+      const cOffset = chamfer / 2
+
+      // Bottom-left chamfer center relative to heroEl
+      const p1x = frameRect.left - heroRect.left + cOffset
+      const p1y = frameRect.bottom - heroRect.top - cOffset
+
+      // Top-right chamfer center relative to heroEl
+      const p2x = frameRect.right - heroRect.left - cOffset
+      const p2y = frameRect.top - heroRect.top + cOffset
+
+      const dx = p2x - p1x
+      const dy = p2y - p1y
+
+      if (dx <= 0) return
+
+      const angleRad = Math.atan2(dy, dx)
+      const angleDeg = angleRad * (180 / Math.PI)
+
+      const midX = (p1x + p2x) / 2
+      const midY = (p1y + p2y) / 2
+
+      hEl.style.setProperty('--slash-x-center', `${midX.toFixed(2)}px`)
+      hEl.style.setProperty('--slash-y-center', `${midY.toFixed(2)}px`)
+      hEl.style.setProperty('--slash-angle', `${angleDeg.toFixed(2)}deg`)
+    }
+
+    updateSlashGeometry()
+
+    let resizeObserver
+    if (typeof ResizeObserver !== 'undefined') {
+      resizeObserver = new ResizeObserver(() => {
+        updateSlashGeometry()
+      })
+      resizeObserver.observe(heroEl)
+      resizeObserver.observe(frameEl)
+    }
+
+    window.addEventListener('resize', updateSlashGeometry)
+
+    const imgEl = frameEl.querySelector('img')
+    if (imgEl) {
+      if (imgEl.complete) {
+        updateSlashGeometry()
+      } else {
+        imgEl.addEventListener('load', updateSlashGeometry, { once: true })
+      }
+    }
+
+    const timer = setTimeout(updateSlashGeometry, 120)
+
+    return () => {
+      if (resizeObserver) resizeObserver.disconnect()
+      window.removeEventListener('resize', updateSlashGeometry)
+      clearTimeout(timer)
+    }
+  }, [])
 
   // Scroll parallax tracking (smoothly accelerates based on scroll speed)
   useEffect(() => {
@@ -86,7 +163,7 @@ export default function Hero() {
             {/* Background geometric offset plate */}
             <div className="hero__frame-plate" aria-hidden="true" />
 
-            <div className="hero__frame">
+            <div className="hero__frame" ref={frameRef}>
               {/* Studio HUD Header Badges */}
               <div className="hero__frame-hud hero__frame-hud--top">
                 <span className="hero__frame-tag">
