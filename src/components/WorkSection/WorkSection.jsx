@@ -12,7 +12,6 @@ const RIBBON_CHUNK = Array.from({ length: 14 })
 export default function WorkSection() {
   const [activeCategory, setActiveCategory] = useState(categories[0].id)
 
-  const currentCategory = categories.find(c => c.id === activeCategory)
   const filtered = projects.filter(p => p.category === activeCategory)
 
   return (
@@ -42,12 +41,6 @@ export default function WorkSection() {
               )
             })}
           </nav>
-
-          {/* Subtitle / Focus Statement directly beneath */}
-          <div className="work__focus-bar">
-            <span className="work__focus-lead">FOCUS:</span>
-            <p className="work__focus-text">{currentCategory?.description}</p>
-          </div>
         </div>
       </div>
 
