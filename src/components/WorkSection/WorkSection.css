@@ -27,6 +27,17 @@
 .work__header {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: min(100%, 1720px);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 2.5vw, 2.5rem);
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .work__header {
+    padding: 0 clamp(0.75rem, 3vw, 1.25rem);
+  }
 }
 
 /* Small top editorial tag */

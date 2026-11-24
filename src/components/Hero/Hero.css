@@ -138,14 +138,14 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: clamp(60px, 9vh, 110px);
+  height: clamp(70px, 10.5vh, 130px);
   background: linear-gradient(
     to top,
-    rgba(28, 27, 32, 0.45) 0%,
-    rgba(28, 27, 32, 0.32) 28%,
-    rgba(28, 27, 32, 0.16) 60%,
-    rgba(28, 27, 32, 0.04) 85%,
-    rgba(28, 27, 32, 0) 100%
+    rgba(20, 19, 24, 0.68) 0%,
+    rgba(20, 19, 24, 0.48) 30%,
+    rgba(20, 19, 24, 0.24) 65%,
+    rgba(20, 19, 24, 0.06) 88%,
+    rgba(20, 19, 24, 0) 100%
   );
   pointer-events: none;
   z-index: 3;
