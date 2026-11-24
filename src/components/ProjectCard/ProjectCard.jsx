@@ -12,6 +12,7 @@ function formatTime(seconds) {
 export default function ProjectCard({ project, index }) {
   const isEven = index % 2 === 0
   const isPortrait = !!project.isPortrait
+  const isDark = index % 2 === 0 // Alternating: 0 dark, 1 light, 2 dark
   const coverImage = project.images?.[0] || project.image
 
   // Video state & refs
@@ -156,7 +157,7 @@ export default function ProjectCard({ project, index }) {
   return (
     <article
       id={`project-${project.id}`}
-      className={`project-card ${isEven ? 'project-card--normal' : 'project-card--flipped'} ${isPortrait ? 'project-card--portrait' : ''}`}
+      className={`project-card ${isDark ? 'project-card--theme-dark' : 'project-card--theme-light'} ${isEven ? 'project-card--normal' : 'project-card--flipped'} ${isPortrait ? 'project-card--portrait' : ''}`}
       style={{
         '--p-accent':    project.palette.accent,
         '--p-highlight': project.palette.highlight,

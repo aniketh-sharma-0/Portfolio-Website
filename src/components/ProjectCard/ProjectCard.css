@@ -6,15 +6,74 @@
 .project-card {
   position: relative;
   width: 100%;
-  background: var(--color-light-section, #ECE8E3);
-  border-top: 1px solid rgba(14, 14, 17, 0.1);
-  border-bottom: 1px solid rgba(14, 14, 17, 0.1);
   overflow: hidden;
 }
 
-/* Unified seamless canvas across all cards in the section */
-.project-card--flipped {
+/* ══════════════════════════════════════════════
+   ALTERNATING SECTION THEMES (One Dark, One Light)
+══════════════════════════════════════════════ */
+
+/* ── Dark Card Theme (Index 0, Index 2, etc.) ── */
+.project-card--theme-dark {
+  background: #08080A;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.project-card--theme-dark .project-card__category {
+  color: var(--p-highlight, #5BCACA);
+}
+
+.project-card--theme-dark .project-card__title {
+  color: #FFFFFF;
+}
+
+.project-card--theme-dark .project-card__short-desc {
+  color: rgba(244, 239, 235, 0.85);
+}
+
+.project-card--theme-dark .project-card__image-frame,
+.project-card--theme-dark .project-card__video-wrap {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.65);
+}
+
+.project-card--theme-dark .project-card__image-frame:hover,
+.project-card--theme-dark .project-card__video-wrap:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* ── Light Card Theme (Index 1, Index 3, etc.) ── */
+.project-card--theme-light {
   background: var(--color-light-section, #ECE8E3);
+  border-top: 1px solid rgba(14, 14, 17, 0.1);
+  border-bottom: 1px solid rgba(14, 14, 17, 0.1);
+}
+
+.project-card--theme-light .project-card__category {
+  color: var(--color-accent, #D4177A);
+}
+
+.project-card--theme-light .project-card__title {
+  color: #0E0E11;
+}
+
+.project-card--theme-light .project-card__short-desc {
+  color: #2E2A24;
+  opacity: 0.9;
+}
+
+.project-card--theme-light .project-card__image-frame,
+.project-card--theme-light .project-card__video-wrap {
+  border: 1px solid rgba(14, 14, 17, 0.14);
+  box-shadow: 0 16px 40px rgba(14, 14, 17, 0.14), 0 2px 8px rgba(14, 14, 17, 0.08);
+}
+
+.project-card--theme-light .project-card__image-frame:hover,
+.project-card--theme-light .project-card__video-wrap:hover {
+  border-color: rgba(14, 14, 17, 0.35);
+  box-shadow: 0 20px 48px rgba(14, 14, 17, 0.22);
 }
 
 /* ── Centered content container with comfortable breathing room ── */
@@ -327,9 +386,7 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-accent, #D4177A);
   display: inline-block;
-  opacity: 0.95;
 }
 
 /* Bold expressive project title */
@@ -337,7 +394,6 @@
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 4.5vw, 4.2rem);
   line-height: 0.95;
-  color: #0E0E11;
   letter-spacing: 0.02em;
   margin: 0;
 }
@@ -347,8 +403,6 @@
   font-family: var(--font-body);
   font-size: 0.98rem;
   line-height: 1.75;
-  color: #2E2A24;
-  opacity: 0.9;
   max-width: 52ch;
   margin: 0;
 }

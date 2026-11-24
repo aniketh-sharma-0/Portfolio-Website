@@ -3,7 +3,7 @@
    ============================================================ */
 
 .work {
-  background: var(--color-light-section, #ECE8E3);
+  background: transparent;
   padding-bottom: 0;
   position: relative;
   scroll-margin-top: 70px;
@@ -175,8 +175,8 @@
 .work__projects {
   display: flex;
   flex-direction: column;
-  background: var(--color-light-section, #ECE8E3);
-  padding-bottom: 4rem;
+  background: transparent;
+  padding-bottom: 0;
 }
 
 /* ══════════════════════════════════════════════
