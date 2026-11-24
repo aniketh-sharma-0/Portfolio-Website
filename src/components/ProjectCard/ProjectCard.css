@@ -106,17 +106,17 @@
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 4px;
+  border-radius: 3px;
   overflow: hidden;
   background: #000;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 229, 153, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
   transition: border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
 }
 
 .project-card__video-wrap:hover {
-  border-color: rgba(0, 229, 153, 0.5);
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 50px rgba(0, 229, 153, 0.22);
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.7);
 }
 
 .project-card__video {
@@ -165,16 +165,16 @@
 }
 
 .project-card__sound-btn:hover {
-  background: rgba(0, 229, 153, 0.15);
-  border-color: #00E599;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
   color: #FFFFFF;
   transform: translateY(-1px);
 }
 
 .project-card__sound-btn--active {
-  border-color: rgba(0, 229, 153, 0.45);
-  color: #00E599;
-  background: rgba(5, 18, 14, 0.88);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.14);
 }
 
 .project-card__sound-icon {
@@ -209,14 +209,14 @@
 }
 
 .project-card__artstation-pill:hover {
-  background: rgba(0, 229, 153, 0.15);
-  border-color: #00E599;
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.35);
   color: #FFFFFF;
   transform: translateY(-1px);
 }
 
 .project-card__pill-arrow {
-  color: #00E599;
+  color: rgba(255, 255, 255, 0.75);
   font-size: 0.85rem;
   line-height: 1;
 }
@@ -260,14 +260,15 @@
 }
 
 .project-card__vctrl-btn:hover {
-  background: var(--p-accent, #00E599);
-  border-color: var(--p-accent, #00E599);
-  color: #050E0B;
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.35);
+  color: #FFFFFF;
 }
 
 .project-card__vctrl-btn--active {
-  border-color: var(--p-accent, #00E599);
-  color: var(--p-accent, #00E599);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
 }
 
 .project-card__scrubber {
@@ -287,9 +288,8 @@
 
 .project-card__scrubber-fill {
   height: 100%;
-  background: var(--p-accent, #00E599);
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 3px;
-  box-shadow: 0 0 10px var(--p-accent, #00E599);
   transition: width 0.08s linear;
 }
 
