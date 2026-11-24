@@ -56,6 +56,13 @@
   opacity: 0.65;
 }
 
+.work__meta-slash {
+  color: var(--color-valorant-red, #FD5663);
+  font-weight: 800;
+  margin: 0 0.25em;
+  opacity: 1;
+}
+
 /* ── Unified High-Impact Discipline Switcher (No Duplicate Titles) ── */
 .work__discipline-nav {
   display: flex;
@@ -98,14 +105,14 @@
 }
 
 .work__discipline-btn:hover .work__btn-text {
-  opacity: 0.8;
-  color: #0E0E11;
+  opacity: 0.85;
+  color: var(--color-valorant-red, #FD5663);
 }
 
-/* Active discipline becomes bold jet black with accent indicator */
+/* Active discipline becomes bold Valorant Red with matching accent indicator */
 .work__discipline-btn--active .work__btn-text {
   opacity: 1;
-  color: #0E0E11;
+  color: var(--color-valorant-red, #FD5663);
 }
 
 .work__btn-indicator {
@@ -114,9 +121,9 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: var(--color-accent, #D4177A);
+  background: var(--color-valorant-red, #FD5663);
   border-radius: 2px;
-  box-shadow: 0 0 10px rgba(212, 23, 122, 0.4);
+  box-shadow: 0 0 12px rgba(253, 86, 99, 0.45);
   animation: indicatorIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 

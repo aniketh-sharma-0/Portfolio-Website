@@ -20,7 +20,9 @@ export default function WorkSection() {
       <div className="work__header-wrap reveal">
         <div className="work__header section-inner">
           <div className="work__meta-tag">
-            <span className="work__meta-label">SELECTED WORKS // DISCIPLINES</span>
+            <span className="work__meta-label">
+              SELECTED WORKS <span className="work__meta-slash">//</span> DISCIPLINES
+            </span>
           </div>
 
           {/* Unified High-Impact Category Switcher */}
