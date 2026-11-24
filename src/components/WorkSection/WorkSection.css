@@ -18,7 +18,7 @@
   max-width: 100vw;
   overflow-x: hidden;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(180deg, rgba(8, 8, 10, 0.95) 0%, rgba(8, 8, 10, 1) 100%);
+  background: #08080A;
   padding-top: 2.25rem;
   padding-bottom: 2.75rem;
 }

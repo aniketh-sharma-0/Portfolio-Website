@@ -31,7 +31,6 @@ export default function ProjectModal({ project, onClose }) {
       <div className="modal" onClick={e => e.stopPropagation()}
         style={{
           '--p-accent':    project.palette.accent,
-          '--p-bg':        project.palette.bg,
           '--p-highlight': project.palette.highlight,
           '--p-text':      project.palette.text,
         }}

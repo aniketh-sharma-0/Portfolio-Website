@@ -6,16 +6,15 @@
 .project-card {
   position: relative;
   width: 100%;
-  background: var(--p-bg, #08080A);
+  background: transparent;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: background 0.4s var(--ease-out);
   overflow: hidden;
 }
 
-/* Alternating background tint for subtle variation across sections */
+/* Unified seamless canvas across all cards in the section */
 .project-card--flipped {
-  background: linear-gradient(180deg, var(--p-bg, #08080A) 0%, rgba(8, 8, 10, 0.98) 100%);
+  background: transparent;
 }
 
 /* ── Centered content container with comfortable breathing room ── */

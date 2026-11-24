@@ -108,7 +108,6 @@ export default function ProjectCard({ project, index }) {
       className={`project-card ${isEven ? 'project-card--normal' : 'project-card--flipped'} ${isPortrait ? 'project-card--portrait' : ''}`}
       style={{
         '--p-accent':    project.palette.accent,
-        '--p-bg':        project.palette.bg,
         '--p-highlight': project.palette.highlight,
         '--p-text':      project.palette.text,
       }}
