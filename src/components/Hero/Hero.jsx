@@ -90,9 +90,8 @@ export default function Hero() {
               <div className="hero__frame-hud hero__frame-hud--top">
                 <span className="hero__frame-tag">
                   <span className="hero__hud-dot" />
-                  FEATURED 3D ARTWORK // ARCANE
+                  ARCANE // FAN ART
                 </span>
-                <span className="hero__frame-coord">№ 01 · CYCLES 3D</span>
               </div>
 
               <img

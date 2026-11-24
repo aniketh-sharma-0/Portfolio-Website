@@ -257,7 +257,6 @@
 }
 
 .hero__frame-tag,
-.hero__frame-coord,
 .hero__frame-subtag,
 .hero__frame-status {
   display: inline-flex;
@@ -295,11 +294,6 @@
 @keyframes hudPulse {
   0%, 100% { opacity: 0.6; transform: scale(0.9); }
   50% { opacity: 1; transform: scale(1.2); filter: drop-shadow(0 0 4px #00E599); }
-}
-
-.hero__frame-coord {
-  color: var(--color-highlight, #5BCACA);
-  border-color: rgba(91, 202, 202, 0.35);
 }
 
 .hero__frame-subtag {
@@ -527,8 +521,7 @@
     display: none; /* Hide bottom HUD on tiny mobile screens to avoid obscuring art */
   }
 
-  .hero__frame-tag,
-  .hero__frame-coord {
+  .hero__frame-tag {
     font-size: 0.58rem;
     padding: 0.25rem 0.55rem;
   }
