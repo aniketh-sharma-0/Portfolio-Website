@@ -76,6 +76,9 @@ export default function Hero() {
         ))}
       </div>
 
+      {/* ── Bottom Vignette / Black to Transparent Gradient (Valorant Inspired) ── */}
+      <div className="hero__bottom-gradient" aria-hidden="true" />
+
       <div className="hero__container">
         {/* ── Featured 3D Artwork Showcase Window with Studio Polygonal Architecture ── */}
         <div className="hero__artwork-showcase reveal">

@@ -132,10 +132,31 @@
   }
 }
 
+/* ── Bottom Vignette / Black to Transparent Gradient (Valorant Inspired) ── */
+.hero__bottom-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(140px, 22vh, 260px);
+  background: linear-gradient(
+    to top,
+    #0E0E11 0%,
+    rgba(14, 14, 17, 0.96) 18%,
+    rgba(14, 14, 17, 0.82) 36%,
+    rgba(14, 14, 17, 0.52) 58%,
+    rgba(14, 14, 17, 0.22) 78%,
+    rgba(14, 14, 17, 0.05) 90%,
+    rgba(14, 14, 17, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
 /* ── Container (Guarantees safe clearance from the fixed top navbar) ── */
 .hero__container {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   width: 100%;
   max-width: var(--container-max, 1350px);
   margin: 0 auto;
@@ -356,8 +377,9 @@
   font-size: clamp(0.92rem, 1.25vw, 1.15rem);
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--color-ink-muted);
+  color: #FFFFFF;
   line-height: 1.5;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.75);
 }
 
 /* Compact View Work Button with Angled Chamfer */
@@ -375,12 +397,12 @@
   letter-spacing: 0.12em;
   color: var(--color-yellow);
   background: var(--color-ink);
-  border: 1px solid var(--color-ink);
+  border: 1px solid rgba(236, 192, 50, 0.45);
   padding: 0.7rem 1.6rem;
   position: relative;
   overflow: hidden;
   transition: all 0.35s var(--ease-out);
-  box-shadow: 0 6px 18px rgba(14, 14, 17, 0.18);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
   border-radius: 2px;
 }
 
@@ -439,6 +461,10 @@
   .hero__poly-shape--accent {
     height: calc(clamp(340px, 46vh, 420px) + 3px);
     clip-path: polygon(0 calc(100% - 3px), 100% calc(100% - 51px), 100% calc(100% - 48px), 0 100%);
+  }
+
+  .hero__bottom-gradient {
+    height: clamp(160px, 26vh, 260px);
   }
 
   .hero__container {
