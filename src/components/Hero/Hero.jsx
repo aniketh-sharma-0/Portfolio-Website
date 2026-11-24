@@ -160,9 +160,6 @@ export default function Hero() {
         {/* ── Featured 3D Artwork Showcase Window with Studio Polygonal Architecture ── */}
         <div className="hero__artwork-showcase reveal">
           <div className="hero__frame-wrap">
-            {/* Background geometric offset plate */}
-            <div className="hero__frame-plate" aria-hidden="true" />
-
             <div className="hero__frame" ref={frameRef}>
               {/* Studio HUD Header Badges */}
               <div className="hero__frame-hud hero__frame-hud--top">

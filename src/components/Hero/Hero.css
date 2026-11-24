@@ -143,14 +143,16 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: clamp(35px, 5vh, 65px);
+  height: clamp(140px, 22vh, 280px);
   background: linear-gradient(
     to top,
-    rgba(20, 19, 24, 0.68) 0%,
-    rgba(20, 19, 24, 0.48) 30%,
-    rgba(20, 19, 24, 0.24) 65%,
-    rgba(20, 19, 24, 0.06) 88%,
-    rgba(20, 19, 24, 0) 100%
+    rgba(14, 13, 18, 0.95) 0%,
+    rgba(14, 13, 18, 0.78) 18%,
+    rgba(14, 13, 18, 0.55) 38%,
+    rgba(14, 13, 18, 0.32) 58%,
+    rgba(14, 13, 18, 0.15) 75%,
+    rgba(14, 13, 18, 0.04) 89%,
+    rgba(14, 13, 18, 0) 100%
   );
   pointer-events: none;
   z-index: 3;
@@ -161,13 +163,13 @@
   position: relative;
   z-index: 4;
   width: 100%;
-  max-width: min(100%, var(--container-max, 1350px));
+  max-width: min(96vw, 1780px);
   margin: 0 auto;
-  padding: calc(68px + 1rem) clamp(1rem, 3.5vw, 2rem) clamp(1rem, 1.8vh, 1.6rem);
+  padding: calc(68px + 1rem) clamp(1rem, 2.5vw, 2.5rem) clamp(1rem, 1.8vh, 1.6rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  gap: clamp(0.75rem, 1.6vh, 1.4rem);
+  gap: clamp(1.4rem, 2.6vh, 2.4rem);
   min-height: auto;
   box-sizing: border-box;
 }
@@ -182,31 +184,14 @@
   margin-bottom: 0;
 }
 
-/* ── Frame Wrap with Geometric Offset Backing ── */
+/* ── Frame Wrap with Geometric Architecture ── */
 .hero__frame-wrap {
   position: relative;
   width: 100%;
-  max-width: min(100%, 1280px);
+  max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* Angular accent shadow plate behind frame */
-.hero__frame-plate {
-  position: absolute;
-  inset: -6px -8px;
-  background: linear-gradient(135deg, rgba(212, 23, 122, 0.4) 0%, rgba(91, 202, 202, 0.25) 100%);
-  clip-path: polygon(0 0, calc(100% - 24px) 0, 100% 24px, 100% 100%, 24px 100%, 0 calc(100% - 24px));
-  filter: blur(12px);
-  opacity: 0.6;
-  pointer-events: none;
-  z-index: 0;
-  transition: opacity 0.4s ease;
-}
-
-.hero__frame-wrap:hover .hero__frame-plate {
-  opacity: 0.9;
 }
 
 /* ── Dedicated Showcase Frame with Chamfered Corners ── */
@@ -215,12 +200,12 @@
   z-index: 1;
   width: 100%;
   max-width: 100%;
-  height: clamp(220px, 34vh, 420px);
+  height: clamp(260px, 38vh, 500px);
   border-radius: 4px;
   overflow: hidden;
   background: #0E0E11;
   border: 2px solid var(--color-accent);
-  box-shadow: 0 20px 50px rgba(14, 14, 17, 0.35), 0 0 30px rgba(212, 23, 122, 0.22);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
   cursor: default;
   user-select: none;
   clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
@@ -315,6 +300,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(0.5rem, 1.2vh, 1rem);
   padding-top: 0;
   padding-bottom: 0.15rem;
 }
@@ -327,7 +315,7 @@
 .hero__title {
   font-family: var(--font-display);
   font-size: clamp(2.2rem, 9.6vw, 11rem);
-  line-height: 0.86;
+  line-height: 0.90;
   letter-spacing: 0.015em;
   color: var(--color-ink);
   text-transform: uppercase;
@@ -466,7 +454,7 @@
   }
 
   .hero__bottom-gradient {
-    height: clamp(25px, 4vh, 45px);
+    height: clamp(80px, 14vh, 160px);
   }
 
   .hero__container {
@@ -481,7 +469,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: clamp(0.5rem, 1.2vh, 0.9rem);
+    gap: clamp(1rem, 2vh, 1.6rem);
     box-sizing: border-box;
   }
 
@@ -504,12 +492,12 @@
 
   .hero__frame {
     width: 100%;
-    max-width: min(100%, 560px);
+    max-width: 100%;
     aspect-ratio: 2.35 / 1;
     height: auto;
     border-radius: 4px;
     border: 2px solid var(--color-accent);
-    box-shadow: 0 10px 24px rgba(14, 14, 17, 0.22), 0 0 18px rgba(212, 23, 122, 0.16);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
     clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
   }
 
