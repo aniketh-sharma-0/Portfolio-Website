@@ -53,6 +53,33 @@ export const projects = [
   },
 
   {
+    id: 'haunted-subway',
+    title: 'Haunted Subway — 3D Environment & Horror Animation',
+    subtitle: '3D Environment & Horror Animation',
+    categoryLabel: '3D Environment & Animation',
+    category: '3d',
+    tags: ['Environment Art', 'Horror Animation', 'Sound Design', 'Blender Cycles', 'DaVinci Resolve'],
+    images: ['/images/subway.png'],
+    video: '/videos/subway.mp4',
+    hasAudio: true,
+    shortDesc: "Originally inspired by Blender Guru's subway environment tutorial on YouTube, expanded into an atmospheric horror animation with moody volumetric lighting, camera movement, and original horror sound design.",
+    description: "Originally inspired by Blender Guru's subway environment tutorial on YouTube, I expanded the concept into an atmospheric horror animation—experimenting with moody volumetric lighting, camera movement, and my first full pass at horror sound design.\n\nModeled, sculpted, and rendered in Blender (Cycles); edited and color graded in DaVinci Resolve.",
+    
+    // ── ArtStation Link Configuration ─────────────────────────
+    artstationUrl: 'https://www.artstation.com/artwork/XaP5V3',
+
+    year: '2025',
+    isFanArt: false,
+    tools: ['Blender (Cycles)', 'DaVinci Resolve', 'Sound Design'],
+    palette: {
+      accent: '#00E599',
+      bg: '#050E0B',
+      highlight: '#34D399',
+      text: '#E6FAF2',
+    },
+  },
+
+  {
     id: 'village',
     title: 'Stylized Village Environment',
     subtitle: 'Stylized Environment',
