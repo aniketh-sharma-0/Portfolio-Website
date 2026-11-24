@@ -9,18 +9,25 @@ const navItems = [
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
-  const [pastHero, setPastHero] = useState(false)
+  const [pastTitle, setPastTitle] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
     const handler = () => {
       const scrollPos = window.scrollY
-      const hero = document.getElementById('hero')
-      const heroHeight = hero ? hero.offsetHeight - 120 : window.innerHeight * 0.75
+      const titleEl = document.querySelector('.hero__title')
 
       setScrolled(scrollPos > 30)
-      // Small SKETCHIZEL logo appears after scrolling past the main hero section
-      setPastHero(scrollPos > heroHeight)
+
+      if (titleEl) {
+        const rect = titleEl.getBoundingClientRect()
+        // SKETCHIZEL in navbar appears as soon as the hero title scrolls up past the navbar
+        setPastTitle(rect.bottom <= 72)
+      } else {
+        const hero = document.getElementById('hero')
+        const heroHeight = hero ? hero.offsetHeight * 0.55 : 450
+        setPastTitle(scrollPos > heroHeight)
+      }
     }
 
     window.addEventListener('scroll', handler, { passive: true })
@@ -36,7 +43,7 @@ export default function Nav() {
 
   return (
     <>
-      <nav className={`nav ${scrolled ? 'nav--scrolled' : ''} ${pastHero ? 'nav--past-hero' : ''}`}>
+      <nav className={`nav ${scrolled ? 'nav--scrolled' : ''} ${pastTitle ? 'nav--past-title nav--past-hero' : ''}`}>
         <div className="nav__inner">
           {/* Logo Brand: Sketchizel Emblem + Typography */}
           <a
