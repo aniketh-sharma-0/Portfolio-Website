@@ -166,8 +166,8 @@ export default function ProjectCard({ project, index }) {
       }}
     >
       <div className="project-card__inner">
-        {/* ── Artwork Media Frame: Slides in on scroll ── */}
-        <div className={`project-card__image-wrap ${isEven ? 'reveal-left' : 'reveal-right'}`}>
+        {/* ── Artwork Media Frame ── */}
+        <div className="project-card__image-wrap">
           {project.video ? (
             <div
               className="project-card__video-wrap"
@@ -302,8 +302,8 @@ export default function ProjectCard({ project, index }) {
           )}
         </div>
 
-        {/* ── Info Panel: Slides in on scroll from opposite side ── */}
-        <div className={`project-card__info ${isEven ? 'reveal-right' : 'reveal-left'}`}>
+        {/* ── Info Panel ── */}
+        <div className="project-card__info">
           <div className="project-card__info-content">
             {/* Category / Discipline Label */}
             <span className="project-card__category">
