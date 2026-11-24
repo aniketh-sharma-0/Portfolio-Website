@@ -55,8 +55,6 @@ export default function Hero() {
         <div className="hero__poly-shape hero__poly-shape--main" />
         {/* Electric Magenta Razor Accent Slash */}
         <div className="hero__poly-shape hero__poly-shape--accent" />
-        {/* Cyan Precision Highlight Slash */}
-        <div className="hero__poly-shape hero__poly-shape--cyan" />
       </div>
 
       {/* ── Diagonal Repeating Outline Watermark (Very Slow Ambient Drift + Silky Smooth Scroll Parallax) ── */}
