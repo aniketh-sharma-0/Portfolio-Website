@@ -186,7 +186,7 @@ export default function Hero() {
         </div>
 
         {/* ── Lower Section: SKETCHIZEL Title on Yellow Canvas ── */}
-        <div className="hero__bottom-section reveal">
+        <div className="hero__bottom-section">
           <div className="hero__title-wrap">
             <h1 className="hero__title">SKETCHIZEL</h1>
             <div className="hero__title-accent" />

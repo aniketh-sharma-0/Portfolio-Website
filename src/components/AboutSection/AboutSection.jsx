@@ -41,14 +41,14 @@ export default function AboutSection({ onSelectCategory }) {
     <section className="about" id="about">
       <div className="about__inner section-inner">
         {/* Editorial Top Tag */}
-        <div className="about__meta reveal">
+        <div className="about__meta">
           <span className="about__meta-text">ABOUT // ARTIST PROFILE</span>
         </div>
 
         {/* Minimalist Graphic Split Layout */}
         <div className="about__grid">
           {/* Left Column: Big Graphic Typography & Interactive Disciplines */}
-          <div className="about__left reveal-left">
+          <div className="about__left">
             <h2 className="about__name">ANIKETH B.</h2>
             <div className="about__alias-wrap">
               <span className="about__alias">aka Sketchizel</span>
@@ -75,7 +75,7 @@ export default function AboutSection({ onSelectCategory }) {
           </div>
 
           {/* Right Column: Bio, Status Badge, Pipeline Tools, and Social/CTA Hub */}
-          <div className="about__right reveal-right">
+          <div className="about__right">
             <div className="about__bio-statement">
               <p>
                 I'm Aniketh — a 3D environment artist and illustrator crafting atmospheric worlds, low-poly game spaces, and expressive character concepts. Blending traditional observational drawing with modern 3D pipelines, I'm working toward bringing bold visual stories to life in the animation and games industry.

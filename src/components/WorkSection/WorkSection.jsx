@@ -19,7 +19,7 @@ export default function WorkSection({ activeCategory: propCategory, onSelectCate
   return (
     <section className="work" id="work">
       {/* ── Editorial Header & Discipline Selector ── */}
-      <div className="work__header-wrap reveal">
+      <div className="work__header-wrap">
         <div className="work__header section-inner">
           <div className="work__meta-tag">
             <span className="work__meta-label">

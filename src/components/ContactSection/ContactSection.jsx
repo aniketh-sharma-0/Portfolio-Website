@@ -7,7 +7,7 @@ export default function ContactSection() {
     <section className="contact grain-overlay" id="contact">
       <div className="contact__inner section-inner">
         {/* Left Column: Heading */}
-        <div className="contact__left reveal">
+        <div className="contact__left">
           <span className="contact__label">CONTACT</span>
           <div className="slash-line" />
           <h2 className="contact__heading">
@@ -17,7 +17,7 @@ export default function ContactSection() {
         </div>
 
         {/* Right Column: Email CTA & Socials */}
-        <div className="contact__right reveal">
+        <div className="contact__right">
           <p className="contact__desc">
             Open to collaborations, commissions, animation studio opportunities,
             and creative projects of all kinds.
