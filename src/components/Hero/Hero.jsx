@@ -49,6 +49,16 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero" ref={heroRef}>
+      {/* ── Dynamic Angled Studio Polygonal Cut (Inspired by ZVKY & Studio Gaming Banners) ── */}
+      <div className="hero__angled-backdrop" aria-hidden="true">
+        {/* Main Angled Obsidian Polygon Cut */}
+        <div className="hero__poly-shape hero__poly-shape--main" />
+        {/* Electric Magenta Razor Accent Slash */}
+        <div className="hero__poly-shape hero__poly-shape--accent" />
+        {/* Cyan Precision Highlight Slash */}
+        <div className="hero__poly-shape hero__poly-shape--cyan" />
+      </div>
+
       {/* ── Diagonal Repeating Outline Watermark (Very Slow Ambient Drift + Silky Smooth Scroll Parallax) ── */}
       <div className="hero__bg-watermark" aria-hidden="true">
         {WATERMARK_ROWS.map((_, i) => (
@@ -69,15 +79,35 @@ export default function Hero() {
       </div>
 
       <div className="hero__container">
-        {/* ── Featured 3D Artwork Showcase Window ── */}
+        {/* ── Featured 3D Artwork Showcase Window with Studio Polygonal Architecture ── */}
         <div className="hero__artwork-showcase reveal">
-          <div className="hero__frame">
-            <img
-              src="/images/Fishbones.png"
-              alt="Fishbones — Arcane Fan Art 3D Recreation by Sketchizel"
-              className="hero__artwork-img"
-              loading="eager"
-            />
+          <div className="hero__frame-wrap">
+            {/* Background geometric offset plate */}
+            <div className="hero__frame-plate" aria-hidden="true" />
+
+            <div className="hero__frame">
+              {/* Studio HUD Header Badges */}
+              <div className="hero__frame-hud hero__frame-hud--top">
+                <span className="hero__frame-tag">
+                  <span className="hero__hud-dot" />
+                  FEATURED 3D ARTWORK // ARCANE
+                </span>
+                <span className="hero__frame-coord">№ 01 · CYCLES 3D</span>
+              </div>
+
+              <img
+                src="/images/Fishbones.png"
+                alt="Fishbones — Arcane Fan Art 3D Recreation by Sketchizel"
+                className="hero__artwork-img"
+                loading="eager"
+              />
+
+              {/* Studio HUD Footer Badges */}
+              <div className="hero__frame-hud hero__frame-hud--bottom">
+                <span className="hero__frame-subtag">JINX'S ROCKET LAUNCHER</span>
+                <span className="hero__frame-status">HAND-TEXTURED IN UCUPAINT</span>
+              </div>
+            </div>
           </div>
         </div>
 
