@@ -216,9 +216,15 @@
   color: var(--color-accent);
 }
 
-@media (max-width: 768px) {
+@media (min-width: 901px) and (max-width: 1150px) {
+  .nav__links {
+    gap: 1.4rem;
+  }
+}
+
+@media (max-width: 900px) {
   .nav__inner {
-    padding: 0.95rem var(--sp-4);
+    padding: 0.95rem clamp(1rem, 3.5vw, 1.5rem);
   }
   .nav__logo {
     gap: 0.65rem;
@@ -227,7 +233,7 @@
     height: 34px;
   }
   .nav__logo-text {
-    font-size: 1.45rem;
+    font-size: 1.35rem;
     margin-left: -0.65rem;
   }
   .nav--past-title .nav__logo-text,

@@ -132,22 +132,20 @@
   }
 }
 
-/* ── Bottom Vignette / Black to Transparent Gradient (Valorant Inspired) ── */
+/* ── Bottom Vignette / Subtle Dark Grey Gradient (Smooth & Atmospheric) ── */
 .hero__bottom-gradient {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: clamp(140px, 22vh, 260px);
+  height: clamp(60px, 9vh, 110px);
   background: linear-gradient(
     to top,
-    #0E0E11 0%,
-    rgba(14, 14, 17, 0.96) 18%,
-    rgba(14, 14, 17, 0.82) 36%,
-    rgba(14, 14, 17, 0.52) 58%,
-    rgba(14, 14, 17, 0.22) 78%,
-    rgba(14, 14, 17, 0.05) 90%,
-    rgba(14, 14, 17, 0) 100%
+    rgba(28, 27, 32, 0.45) 0%,
+    rgba(28, 27, 32, 0.32) 28%,
+    rgba(28, 27, 32, 0.16) 60%,
+    rgba(28, 27, 32, 0.04) 85%,
+    rgba(28, 27, 32, 0) 100%
   );
   pointer-events: none;
   z-index: 3;
@@ -158,9 +156,9 @@
   position: relative;
   z-index: 4;
   width: 100%;
-  max-width: var(--container-max, 1350px);
+  max-width: min(100%, var(--container-max, 1350px));
   margin: 0 auto;
-  padding: calc(68px + 1.25rem) var(--sp-8) clamp(2rem, 3.8vh, 2.75rem);
+  padding: calc(68px + 1rem) clamp(1rem, 3.5vw, 2rem) clamp(1.5rem, 2.5vh, 2.25rem);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -183,7 +181,7 @@
 .hero__frame-wrap {
   position: relative;
   width: 100%;
-  max-width: clamp(1000px, 75vw, 1320px);
+  max-width: min(100%, 1280px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -211,7 +209,8 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  height: clamp(260px, 38vh, 440px);
+  max-width: 100%;
+  height: clamp(220px, 34vh, 420px);
   border-radius: 4px;
   overflow: hidden;
   background: #0E0E11;
@@ -321,19 +320,20 @@
 
 .hero__title {
   font-family: var(--font-display);
-  font-size: clamp(4.2rem, 11.8vw, 11.8rem);
-  line-height: 0.85;
+  font-size: clamp(2.2rem, 9.6vw, 11rem);
+  line-height: 0.86;
   letter-spacing: 0.015em;
   color: var(--color-ink);
   text-transform: uppercase;
   white-space: nowrap;
   margin: 0;
+  max-width: 100%;
   filter: drop-shadow(0 4px 12px rgba(14, 14, 17, 0.08));
   animation: heroTitleIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .hero__title-accent {
-  width: 180px;
+  width: clamp(80px, 14vw, 180px);
   height: 5px;
   background: var(--color-accent);
   margin-top: 0.5rem;
@@ -362,14 +362,18 @@
 /* ── Bottom Bar: Tagline Left, View Work Right ── */
 .hero__bottom-bar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--sp-8);
+  gap: 1rem 1.5rem;
   padding-top: 0.35rem;
+  width: 100%;
 }
 
 .hero__info {
-  max-width: clamp(520px, 42vw, 720px);
+  max-width: min(100%, 650px);
+  flex: 1 1 240px;
+  min-width: 0;
 }
 
 .hero__tagline {
@@ -464,7 +468,7 @@
   }
 
   .hero__bottom-gradient {
-    height: clamp(160px, 26vh, 260px);
+    height: clamp(65px, 10vh, 115px);
   }
 
   .hero__container {
@@ -472,14 +476,14 @@
     max-width: 100%;
     min-height: auto;
     height: auto;
-    padding-top: calc(68px + 1.25rem);
-    padding-bottom: 2.25rem;
-    padding-left: var(--sp-4);
-    padding-right: var(--sp-4);
+    padding-top: calc(68px + 1rem);
+    padding-bottom: 2rem;
+    padding-left: clamp(0.75rem, 3.5vw, 1.25rem);
+    padding-right: clamp(0.75rem, 3.5vw, 1.25rem);
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    gap: 1.25rem;
+    gap: 1.15rem;
     box-sizing: border-box;
   }
 
@@ -496,12 +500,13 @@
   }
 
   .hero__frame-wrap {
+    width: 100%;
     max-width: 100%;
   }
 
   .hero__frame {
     width: 100%;
-    max-width: 440px;
+    max-width: min(100%, 560px);
     aspect-ratio: 2.35 / 1;
     height: auto;
     border-radius: 4px;
@@ -541,14 +546,14 @@
   }
 
   .hero__title {
-    font-size: clamp(2.4rem, 11vw, 4.2rem);
+    font-size: clamp(1.85rem, 8.8vw, 3.8rem);
     line-height: 0.88;
     white-space: nowrap;
     max-width: 100%;
   }
 
   .hero__title-accent {
-    width: 85px;
+    width: clamp(65px, 20vw, 110px);
     height: 4px;
     margin-top: 0.45rem;
   }
@@ -557,13 +562,15 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 1.5rem;
-    padding-top: 0.5rem;
+    gap: 1rem;
+    padding-top: 0.4rem;
+    width: 100%;
     flex: none;
   }
 
   .hero__info {
     max-width: 100%;
+    width: 100%;
   }
 
   .hero__tagline {
