@@ -19,7 +19,7 @@
   overflow-x: hidden;
   border-top: 1px solid rgba(14, 14, 17, 0.12);
   border-bottom: 1px solid rgba(14, 14, 17, 0.12);
-  background: var(--color-light-section, #ECE8E1);
+  background: var(--color-light-section, #ECE8E3);
   padding-top: 2.5rem;
   padding-bottom: 2.85rem;
 }

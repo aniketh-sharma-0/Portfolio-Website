@@ -1,10 +1,10 @@
 /* ============================================================
    ABOUT SECTION — Editorial Minimalist Profile (Constant Light Canvas)
-   Inspired by Valorant Editorial Stone Canvas (#ECE8E1)
+   Inspired by Valorant Editorial Stone Canvas (#ECE8E3)
    ============================================================ */
 
 .about {
-  background: var(--color-light-section, #ECE8E1);
+  background: var(--color-light-section, #ECE8E3);
   padding: 4.5rem 0 5.5rem;
   position: relative;
   border-top: 1px solid rgba(14, 14, 17, 0.12);

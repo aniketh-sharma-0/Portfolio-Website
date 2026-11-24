@@ -106,11 +106,6 @@ export default function ProjectModal({ project, onClose }) {
             ))}
           </div>
 
-          {/* Fan art credit */}
-          {project.isFanArt && (
-            <p className="modal__credit">↳ Fan Art of: <em>{project.fanArtOf}</em></p>
-          )}
-
           {/* Tools */}
           {project.tools?.length > 0 && (
             <div className="modal__tools">
