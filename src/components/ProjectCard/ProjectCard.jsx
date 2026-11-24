@@ -162,6 +162,7 @@ export default function ProjectCard({ project, index }) {
         '--p-accent':    project.palette.accent,
         '--p-highlight': project.palette.highlight,
         '--p-text':      project.palette.text,
+        '--p-bg':        project.palette.bg,
       }}
     >
       <div className="project-card__inner">

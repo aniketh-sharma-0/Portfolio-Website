@@ -46,7 +46,7 @@ export const projects = [
     tools: ['Blender', 'Ucupaint', 'PureRef'],
     palette: {
       accent: '#D4177A',
-      bg: '#0D0A0F',
+      bg: '#08080A',
       highlight: '#5BCACA',
       text: '#F0EDE8',
     },
@@ -96,10 +96,10 @@ export const projects = [
     isFanArt: false,
     tools: ['Blender'],
     palette: {
-      accent: '#D4622A',
-      bg: '#1A0E06',
-      highlight: '#5E9E3A',
-      text: '#F5E8D8',
+      accent: '#FF7A3D',
+      bg: '#623418',
+      highlight: '#FDBA74',
+      text: '#FDF6F0',
     },
   },
 
@@ -144,10 +144,10 @@ export const projects = [
     isFanArt: false,
     tools: ['Blender'],
     palette: {
-      accent: '#C878A8',
-      bg: '#0E0A18',
-      highlight: '#8A9AE8',
-      text: '#F5F0FA',
+      accent: '#818CF8',
+      bg: '#1E1B4B',
+      highlight: '#A5B4FC',
+      text: '#F5F5FC',
     },
   },
 
