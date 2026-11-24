@@ -1,10 +1,11 @@
 /* ============================================================
-   ABOUT SECTION — Editorial Minimalist Profile (Dark Obsidian Canvas)
+   ABOUT SECTION — Editorial Minimalist Profile (Pure Black Canvas)
+   Hot-Pink (#FF007F) & Yellow Accent Palette
    ============================================================ */
 
 .about {
-  background: #08080A;
-  padding: 5rem 0 6rem;
+  background: #000000;
+  padding: clamp(3.5rem, 6vh, 5.5rem) 0 clamp(4.5rem, 7vh, 6.5rem);
   position: relative;
   border-top: none;
   border-bottom: none;
@@ -17,7 +18,7 @@
 .about__inner {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: clamp(2rem, 3.5vh, 2.75rem);
 }
 
 /* ── Top Meta Tag ── */
@@ -31,18 +32,19 @@
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.22em;
-  color: rgba(255, 255, 255, 0.55);
+  color: #9A9A9A;
+  text-transform: uppercase;
 }
 
 /* ── Main Minimalist Split Grid ── */
 .about__grid {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
-  gap: 4.5rem;
+  gap: clamp(2.5rem, 4.5vw, 4.5rem);
   align-items: flex-start;
 }
 
-/* ── Left Column: Identity & Disciplines ── */
+/* ── Left Column: Identity & Interactive Disciplines ── */
 .about__left {
   display: flex;
   flex-direction: column;
@@ -50,7 +52,7 @@
 
 .about__name {
   font-family: var(--font-display);
-  font-size: clamp(3.8rem, 7.5vw, 6.8rem);
+  font-size: clamp(3.6rem, 7.2vw, 6.5rem);
   line-height: 0.88;
   letter-spacing: 0.015em;
   color: #FFFFFF;
@@ -63,38 +65,49 @@
   align-items: center;
   gap: 0.5rem;
   margin-top: 0.6rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: clamp(1.5rem, 2.5vh, 2.25rem);
 }
 
+/* Script / Handwritten font strictly ONLY for "aka Sketchizel" */
 .about__alias {
   font-family: var(--font-hand);
-  font-size: 1.85rem;
-  color: var(--color-accent, #D4177A);
+  font-size: clamp(1.65rem, 2.4vw, 2.1rem);
+  color: var(--color-accent, #FF007F);
   letter-spacing: 0.04em;
   font-weight: 600;
 }
 
-/* Disciplines List */
+/* ── Interactive Discipline Cards (01–04) ── */
 .about__disciplines-list {
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
-  border-top: none;
+  gap: 0.65rem;
+  width: 100%;
 }
 
 .about__discipline-item {
   display: flex;
-  align-items: flex-start;
-  gap: 1.1rem;
-  padding: 0.85rem 0.75rem;
-  border-bottom: none;
-  border-radius: 4px;
-  transition: background 0.2s ease, padding-left 0.2s ease;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.15rem;
+  padding: clamp(0.9rem, 1.4vh, 1.15rem) clamp(1rem, 1.5vw, 1.25rem);
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
-.about__discipline-item:hover {
-  background: rgba(255, 255, 255, 0.045);
-  padding-left: 0.85rem;
+.about__discipline-item:hover,
+.about__discipline-item:focus-visible {
+  background: #141414;
+  border-color: rgba(255, 0, 127, 0.45);
+  transform: translateX(4px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45), 0 0 12px rgba(255, 0, 127, 0.15);
 }
 
 .about__discipline-index {
@@ -102,83 +115,165 @@
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: var(--color-accent, #D4177A);
-  margin-top: 0.25rem;
+  color: var(--color-accent, #FF007F);
   flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.about__discipline-item:hover .about__discipline-index {
+  transform: scale(1.1);
 }
 
 .about__discipline-info {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 .about__discipline-title {
   font-family: var(--font-body);
-  font-size: 1.08rem;
+  font-size: clamp(1rem, 1.15vw, 1.1rem);
   font-weight: 700;
   color: #FFFFFF;
   letter-spacing: 0.01em;
+  transition: color 0.25s ease;
 }
 
+.about__discipline-item:hover .about__discipline-title {
+  color: #FFFFFF;
+}
+
+/* Sub-labels in highly readable clean modern sans-serif at 14px–15px with 1.6 line-height */
 .about__discipline-note {
-  font-family: var(--font-hand);
-  font-size: 1.1rem;
-  color: rgba(244, 239, 235, 0.65);
+  font-family: 'Inter', 'Plus Jakarta Sans', var(--font-body), sans-serif;
+  font-size: clamp(14px, 0.92rem, 15px);
+  line-height: 1.6;
+  color: #9A9A9A;
+  font-weight: 400;
+  transition: color 0.25s ease;
 }
 
-/* ── Right Column: Bio, Trajectory & Socials ── */
+.about__discipline-item:hover .about__discipline-note {
+  color: #D4D4D4;
+}
+
+/* Subtle right arrow appearing on hover */
+.about__discipline-arrow {
+  font-size: 1.35rem;
+  color: #9A9A9A;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+}
+
+.about__discipline-item:hover .about__discipline-arrow,
+.about__discipline-item:focus-visible .about__discipline-arrow {
+  opacity: 1;
+  transform: translateX(0);
+  color: #FF007F;
+}
+
+/* ── Right Column: Bio, Status Badge, Pipeline & Social Hub ── */
 .about__right {
   display: flex;
   flex-direction: column;
-  gap: 2.2rem;
-  padding-top: 0.5rem;
+  gap: clamp(1.5rem, 2.8vh, 2rem);
+  padding-top: 0.35rem;
 }
 
+/* Main bio paragraph in clean modern sans-serif at 16px–17px with 1.6 line-height */
 .about__bio-statement p {
-  font-family: var(--font-body);
-  font-size: clamp(1.08rem, 1.4vw, 1.22rem);
-  line-height: 1.85;
-  color: rgba(244, 239, 235, 0.88);
+  font-family: 'Inter', 'Plus Jakarta Sans', var(--font-body), sans-serif;
+  font-size: clamp(16px, 1.05rem, 17px);
+  line-height: 1.6;
+  color: #ECE8E3;
   font-weight: 400;
   margin: 0;
 }
 
-/* Target Career Pill */
+/* Yellow-accented Status / Target Box */
 .about__goal-pill {
   display: inline-flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 0.85rem;
-  padding: 0.65rem 1.35rem;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-left: 4px solid var(--color-accent, #D4177A);
-  border-radius: 3px;
+  gap: 0.65rem 0.85rem;
+  padding: 0.75rem 1.35rem;
+  background: rgba(236, 192, 50, 0.05);
+  border: 1px solid rgba(236, 192, 50, 0.25);
+  border-left: 4px solid var(--color-yellow, #ECC032);
+  border-radius: 4px;
   width: fit-content;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+  max-width: 100%;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
 }
 
 .about__goal-label {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.18em;
   color: var(--color-yellow, #ECC032);
+  white-space: nowrap;
 }
 
 .about__goal-badge {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: clamp(1.05rem, 1.25vw, 1.25rem);
   letter-spacing: 0.08em;
   color: #FFFFFF;
 }
 
-/* Minimalist Direct Social Logos (No boxes, pure icons) */
+/* ── Tools & Pipeline Pill/Tag Row ── */
+.about__tools-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.about__tools-heading {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #9A9A9A;
+}
+
+.about__tools-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.65rem;
+}
+
+.about__tool-pill {
+  font-family: 'Inter', 'Plus Jakarta Sans', var(--font-body), sans-serif;
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #E2E2E2;
+  background: #111115;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0.38rem 0.85rem;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.about__tool-pill:hover {
+  border-color: rgba(255, 0, 127, 0.45);
+  color: #FFFFFF;
+  background: #18181D;
+  transform: translateY(-1px);
+}
+
+/* ── Social Icons & Primary CTA Row ── */
 .about__social-block {
   display: flex;
   flex-direction: column;
-  gap: 0.95rem;
-  padding-top: 0.5rem;
+  gap: 0.75rem;
+  padding-top: 0.35rem;
 }
 
 .about__social-heading {
@@ -187,14 +282,23 @@
   font-weight: 700;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.55);
+  color: #9A9A9A;
+}
+
+.about__social-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem 1.75rem;
+  width: 100%;
 }
 
 .about__social-links {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1.35rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
 }
 
@@ -204,7 +308,7 @@
   justify-content: center;
   background: transparent;
   border: none;
-  padding: 0.35rem;
+  padding: 0.3rem;
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
   cursor: pointer;
@@ -233,18 +337,68 @@
   transform: scale(1.12);
 }
 
-/* ── Responsive ── */
+/* Primary CTA Button (VIEW WORK ↓) */
+.about__cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.14em;
+  color: #0E0E11;
+  background: var(--color-yellow, #ECC032);
+  border: 1px solid var(--color-yellow, #ECC032);
+  padding: 0.75rem 1.6rem;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: 700;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(236, 192, 50, 0.3);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.about__cta-btn:hover {
+  background: #FF007F;
+  border-color: #FF007F;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 0, 127, 0.45);
+}
+
+.about__cta-arrow {
+  font-size: 1.15rem;
+  transition: transform 0.25s ease;
+}
+
+.about__cta-btn:hover .about__cta-arrow {
+  transform: translateY(3px);
+}
+
+/* ── Responsive Viewports ── */
 @media (max-width: 960px) {
   .about {
-    padding: 3.5rem 0 4rem;
+    padding: 3.5rem 0 4.5rem;
   }
 
   .about__grid {
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 3rem;
   }
 
   .about__right {
     padding-top: 0;
+  }
+
+  .about__social-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .about__cta-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.4rem;
   }
 }

@@ -9,8 +9,10 @@ const RIBBON_CHUNK = Array.from({ length: 14 })
   .fill('NOT AVAILABLE   ///   NOT AVAILABLE')
   .join('   ///   ') + '   ///   '
 
-export default function WorkSection() {
-  const [activeCategory, setActiveCategory] = useState(categories[0].id)
+export default function WorkSection({ activeCategory: propCategory, onSelectCategory: propOnSelect }) {
+  const [localCategory, setLocalCategory] = useState(categories[0].id)
+  const activeCategory = propCategory !== undefined ? propCategory : localCategory
+  const setActiveCategory = propOnSelect || setLocalCategory
 
   const filtered = projects.filter(p => p.category === activeCategory)
 
