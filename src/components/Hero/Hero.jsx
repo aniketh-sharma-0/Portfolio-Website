@@ -3,7 +3,7 @@ import './Hero.css'
 
 const WATERMARK_ROWS = Array.from({ length: 48 })
 // Single space between words, tight and compact with seamless loop boundary
-const WATERMARK_CHUNK = Array.from({ length: 20 }).fill('SKETCHIZEL').join('\u00A0') + '\u00A0'
+const WATERMARK_CHUNK = Array.from({ length: 28 }).fill('SKETCHIZEL').join('\u00A0') + '\u00A0'
 
 export default function Hero() {
   const heroRef = useRef(null)
@@ -13,26 +13,34 @@ export default function Hero() {
     if (el) el.scrollIntoView({ behavior: 'smooth' })
   }
 
-  // Scroll parallax tracking (exact same scroll speed as now)
+  // Scroll parallax tracking (smoothly accelerates based on scroll speed)
   useEffect(() => {
     const heroEl = heroRef.current
     if (!heroEl) return
 
     let rafId
+    let currentY = window.scrollY
+    let targetY = window.scrollY
+    let isRunning = true
+
     const handleScroll = () => {
-      cancelAnimationFrame(rafId)
-      rafId = requestAnimationFrame(() => {
-        const y = window.scrollY
-        if (y < window.innerHeight * 1.5) {
-          heroEl.style.setProperty('--scroll-y', `${y}px`)
-        }
-      })
+      targetY = window.scrollY
+    }
+
+    const loop = () => {
+      if (!isRunning) return
+      if (targetY < window.innerHeight * 1.6) {
+        currentY += (targetY - currentY) * 0.22
+        heroEl.style.setProperty('--scroll-y', `${currentY.toFixed(2)}px`)
+      }
+      rafId = requestAnimationFrame(loop)
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
+    rafId = requestAnimationFrame(loop)
 
     return () => {
+      isRunning = false
       cancelAnimationFrame(rafId)
       window.removeEventListener('scroll', handleScroll)
     }
@@ -40,14 +48,15 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero" ref={heroRef}>
-      {/* ── Diagonal Repeating Outline Watermark (Smooth Subtle Drift + Scroll Parallax) ── */}
+      {/* ── Diagonal Repeating Outline Watermark (Very Slow Ambient Drift + Dynamic Scroll Speedup) ── */}
       <div className="hero__bg-watermark" aria-hidden="true">
         {WATERMARK_ROWS.map((_, i) => (
           <div
             key={i}
             className={`hero__watermark-row ${i % 2 === 1 ? 'hero__watermark-row--odd' : 'hero__watermark-row--even'}`}
             style={{
-              '--ambient-duration': `${85 + (i % 6) * 5}s`,
+              '--ambient-duration': `${180 + (i % 6) * 12}s`,
+              '--row-factor': (0.8 + (i % 5) * 0.12).toFixed(2),
             }}
           >
             <div className="hero__watermark-track">

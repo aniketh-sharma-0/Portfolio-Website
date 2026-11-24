@@ -49,16 +49,16 @@
   will-change: transform;
 }
 
-/* Scroll-driven shift (exact same responsive speed) */
+/* Scroll-driven shift (proportional to scroll speed with layered depth) */
 .hero__watermark-row--even {
-  transform: translateX(calc(-4rem - var(--scroll-y, 0px) * 0.35));
+  transform: translateX(calc(-4rem - var(--scroll-y, 0px) * var(--row-factor, 0.95)));
 }
 
 .hero__watermark-row--odd {
-  transform: translateX(calc(-10rem + var(--scroll-y, 0px) * 0.35));
+  transform: translateX(calc(-10rem + var(--scroll-y, 0px) * var(--row-factor, 0.95)));
 }
 
-/* Very slow continuous ambient drift */
+/* Very slow continuous ambient drift as before */
 .hero__watermark-track {
   display: flex;
   width: max-content;
@@ -72,11 +72,11 @@
 }
 
 .hero__watermark-row--even .hero__watermark-track {
-  animation: marqueeLeft var(--ambient-duration, 95s) linear infinite;
+  animation: marqueeLeft var(--ambient-duration, 195s) linear infinite;
 }
 
 .hero__watermark-row--odd .hero__watermark-track {
-  animation: marqueeRight var(--ambient-duration, 95s) linear infinite;
+  animation: marqueeRight var(--ambient-duration, 195s) linear infinite;
 }
 
 @keyframes marqueeLeft {
