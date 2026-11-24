@@ -470,8 +470,12 @@
 @media (max-width: 960px) {
   .project-card__inner {
     grid-template-columns: 1fr !important;
-    gap: 2.5rem;
-    padding: 3.5rem var(--sp-4);
+    gap: 2rem;
+    padding: clamp(2rem, 3.5vh, 2.8rem) var(--sp-4);
+  }
+
+  .project-card:first-child .project-card__inner {
+    padding-top: clamp(1.4rem, 2.4vh, 2rem);
   }
 
   .project-card--flipped .project-card__image-wrap {
