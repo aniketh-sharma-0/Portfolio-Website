@@ -16,10 +16,17 @@
   --color-yellow-deep:  #DCB022;
   --color-yellow-soft:  #FBE589;
 
-  /* ── Rich Dark Backgrounds (Work, About, Contact) ── */
+  /* ── Rich Dark Backgrounds (Work, Footer) ── */
   --color-bg:           #0B0B0E;
   --color-surface:      #121217;
   --color-surface-card: #181820;
+
+  /* ── Constant Light Section Canvas (Valorant Editorial Bone Stone) ── */
+  --color-light-section:        #ECE8E1;
+  --color-light-section-card:   #FFFFFF;
+  --color-light-section-border: rgba(14, 14, 17, 0.12);
+  --color-light-section-ink:    #0E0E11;
+  --color-light-section-muted:  #55524B;
 
   /* ── Typography & Ink ── */
   --color-ink:          #0E0E11; /* True Graphic Jet Black */
