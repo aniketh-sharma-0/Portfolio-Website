@@ -549,7 +549,8 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+    justify-content: flex-start;
+    gap: clamp(0.75rem, 1.8vh, 1.2rem);
     padding-top: 0.4rem;
     width: 100%;
     flex: none;
@@ -558,6 +559,7 @@
   .hero__info {
     max-width: 100%;
     width: 100%;
+    flex: none;
   }
 
   .hero__tagline {
