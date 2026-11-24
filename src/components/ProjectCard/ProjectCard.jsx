@@ -189,7 +189,7 @@ export default function ProjectCard({ project, index }) {
                 onClick={togglePlay}
               />
 
-              {/* Top video bar: Minimalist sound toggle + ArtStation link */}
+              {/* Top video bar: Minimalist sound toggle */}
               <div className="project-card__video-header">
                 <button
                   type="button"
@@ -212,18 +212,6 @@ export default function ProjectCard({ project, index }) {
                     {isMuted ? 'UNMUTE' : 'MUTE'}
                   </span>
                 </button>
-
-                <a
-                  href={artstationUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="project-card__artstation-pill"
-                  aria-label="View on ArtStation"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <span>ARTSTATION</span>
-                  <span className="project-card__pill-arrow">↗</span>
-                </a>
               </div>
 
               {/* Video Controls Bar */}
