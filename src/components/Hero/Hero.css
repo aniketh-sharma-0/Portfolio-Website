@@ -54,7 +54,7 @@
   background: var(--color-accent, #D4177A);
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%) rotate(var(--slash-angle, -14.2deg));
-  filter: drop-shadow(0 0 16px rgba(212, 23, 122, 0.75));
+  filter: drop-shadow(0 0 2px rgba(212, 23, 122, 0.25));
 }
 
 /* ── Diagonal Repeating Outline Watermark in Yellow Ground ── */

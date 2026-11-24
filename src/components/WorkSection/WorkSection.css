@@ -57,7 +57,7 @@
 }
 
 .work__meta-slash {
-  color: var(--color-valorant-red, #FD5663);
+  color: var(--color-yellow, #ECC032);
   font-weight: 800;
   margin: 0 0.25em;
   opacity: 1;
@@ -106,13 +106,13 @@
 
 .work__discipline-btn:hover .work__btn-text {
   opacity: 0.85;
-  color: var(--color-valorant-red, #FD5663);
+  color: var(--color-yellow, #ECC032);
 }
 
-/* Active discipline becomes bold Valorant Red with matching accent indicator */
+/* Active discipline becomes bold Yellow with matching accent indicator */
 .work__discipline-btn--active .work__btn-text {
   opacity: 1;
-  color: var(--color-valorant-red, #FD5663);
+  color: var(--color-yellow, #ECC032);
 }
 
 .work__btn-indicator {
@@ -121,9 +121,9 @@
   left: 0;
   width: 100%;
   height: 3px;
-  background: var(--color-valorant-red, #FD5663);
+  background: var(--color-yellow, #ECC032);
   border-radius: 2px;
-  box-shadow: 0 0 12px rgba(253, 86, 99, 0.45);
+  box-shadow: 0 0 8px rgba(236, 192, 50, 0.4);
   animation: indicatorIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
