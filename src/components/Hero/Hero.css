@@ -72,11 +72,11 @@
 }
 
 .hero__watermark-row--even .hero__watermark-track {
-  animation: marqueeLeft var(--ambient-duration, 35s) linear infinite;
+  animation: marqueeLeft var(--ambient-duration, 95s) linear infinite;
 }
 
 .hero__watermark-row--odd .hero__watermark-track {
-  animation: marqueeRight var(--ambient-duration, 35s) linear infinite;
+  animation: marqueeRight var(--ambient-duration, 95s) linear infinite;
 }
 
 @keyframes marqueeLeft {

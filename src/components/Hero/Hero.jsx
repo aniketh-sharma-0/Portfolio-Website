@@ -3,7 +3,7 @@ import './Hero.css'
 
 const WATERMARK_ROWS = Array.from({ length: 48 })
 // Single space between words, tight and compact with seamless loop boundary
-const WATERMARK_CHUNK = Array.from({ length: 32 }).fill('SKETCHIZEL').join('\u00A0') + '\u00A0'
+const WATERMARK_CHUNK = Array.from({ length: 20 }).fill('SKETCHIZEL').join('\u00A0') + '\u00A0'
 
 export default function Hero() {
   const heroRef = useRef(null)
@@ -40,14 +40,14 @@ export default function Hero() {
 
   return (
     <section className="hero" id="hero" ref={heroRef}>
-      {/* ── Diagonal Repeating Outline Watermark (Active Ambient Drift + Scroll Parallax) ── */}
+      {/* ── Diagonal Repeating Outline Watermark (Smooth Subtle Drift + Scroll Parallax) ── */}
       <div className="hero__bg-watermark" aria-hidden="true">
         {WATERMARK_ROWS.map((_, i) => (
           <div
             key={i}
             className={`hero__watermark-row ${i % 2 === 1 ? 'hero__watermark-row--odd' : 'hero__watermark-row--even'}`}
             style={{
-              '--ambient-duration': `${30 + (i % 6) * 3}s`,
+              '--ambient-duration': `${85 + (i % 6) * 5}s`,
             }}
           >
             <div className="hero__watermark-track">
