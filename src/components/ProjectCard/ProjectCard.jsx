@@ -275,15 +275,6 @@ export default function ProjectCard({ project, index }) {
             {/* Concise 1-3 Sentence Description */}
             <p className="project-card__short-desc">{project.shortDesc}</p>
 
-            {/* 3 to 5 Skill & Software Tags */}
-            <div className="project-card__tags">
-              {project.tags.map(tag => (
-                <span key={tag} className="project-card__tag">
-                  {tag}
-                </span>
-              ))}
-            </div>
-
             {/* Primary External ArtStation CTA */}
             <div className="project-card__action">
               <a

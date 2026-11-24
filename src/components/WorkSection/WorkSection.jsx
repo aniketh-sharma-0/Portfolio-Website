@@ -52,7 +52,7 @@ export default function WorkSection() {
       </div>
 
       {/* ── Visual-First Projects Gallery, Digital Art Abstract Library, or Wrapped Empty State ── */}
-      <div key={activeCategory} className="work__tab-pane">
+      <div key={activeCategory} className={`work__tab-pane ${activeCategory !== '3d' ? 'work__tab-pane--dark' : ''}`}>
         {activeCategory === 'digital' ? (
           <DigitalGallery />
         ) : activeCategory === 'traditional' ? (

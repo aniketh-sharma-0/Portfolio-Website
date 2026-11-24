@@ -3,7 +3,7 @@
    ============================================================ */
 
 .work {
-  background: #08080A;
+  background: var(--color-light-section, #ECE8E3);
   padding-bottom: 0;
   position: relative;
   scroll-margin-top: 70px;
@@ -154,6 +154,14 @@
   animation: tabContentIn 0.25s ease-out forwards;
 }
 
+.work__tab-pane--dark {
+  background: #08080A;
+}
+
+.work:has(.work__tab-pane--dark) {
+  background: #08080A;
+}
+
 @keyframes tabContentIn {
   from {
     opacity: 0;
@@ -167,6 +175,8 @@
 .work__projects {
   display: flex;
   flex-direction: column;
+  background: var(--color-light-section, #ECE8E3);
+  padding-bottom: 4rem;
 }
 
 /* ══════════════════════════════════════════════
