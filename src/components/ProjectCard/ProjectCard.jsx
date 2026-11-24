@@ -1,4 +1,4 @@
-import React, { useState, useRef, useCallback } from 'react'
+import React, { useState, useRef, useCallback, useEffect } from 'react'
 import { socialLinks } from '../../data/projects'
 import './ProjectCard.css'
 
@@ -17,12 +17,61 @@ export default function ProjectCard({ project, index }) {
   // Video state & refs
   const videoRef = useRef(null)
   const progressRef = useRef(null)
+  const userPausedRef = useRef(false)
   const [isPlaying, setIsPlaying] = useState(true)
   const [isMuted, setIsMuted] = useState(true)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
   const [progress, setProgress] = useState(0)
   const [showControls, setShowControls] = useState(false)
+
+  // Auto-pause video & mute audio immediately when scrolled away from viewport
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video || !project.video) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          // Scrolled away: immediately pause video and mute audio
+          video.pause()
+          video.muted = true
+          setIsPlaying(false)
+          setIsMuted(true)
+        } else {
+          // Scrolled back into view: auto-resume video in muted loop (unless user paused it)
+          if (!userPausedRef.current) {
+            video.play().then(() => setIsPlaying(true)).catch(() => {})
+          }
+        }
+      },
+      {
+        threshold: 0.15, // Trigger when less than 15% is visible
+      }
+    )
+
+    // Pause & mute when browser tab is switched
+    const handleVisibilityChange = () => {
+      if (document.hidden && video) {
+        video.pause()
+        video.muted = true
+        setIsPlaying(false)
+        setIsMuted(true)
+      }
+    }
+
+    observer.observe(video)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    return () => {
+      if (video) {
+        video.pause()
+        video.muted = true
+      }
+      observer.disconnect()
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
+  }, [project.video])
 
   // If a specific project URL is provided and not a placeholder, use it; otherwise fall back to main profile
   const artstationUrl = (project.artstationUrl && !project.artstationUrl.includes('YOUR_'))
@@ -34,8 +83,10 @@ export default function ProjectCard({ project, index }) {
     if (e) e.stopPropagation()
     if (!videoRef.current) return
     if (videoRef.current.paused) {
+      userPausedRef.current = false
       videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {})
     } else {
+      userPausedRef.current = true
       videoRef.current.pause()
       setIsPlaying(false)
     }
